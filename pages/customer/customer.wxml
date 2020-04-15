@@ -1,0 +1,63 @@
+<nav title="{{title}}"></nav>
+
+<!-- <view style="height:{{titleBarHeight+statusBarHeight}}px;">
+
+</view> -->
+
+
+<view style="margin-top:{{titleBarHeight+statusBarHeight+20}}px;">
+	<view class='confirmCon'>
+		<view class='confirm-item02'>
+			<text style='margin-left:5px;'>名字</text>
+			<input class='inputcss' value="{{shop.name}}" placeholder-style='font-size: 30rpx;color: rgb(177, 177, 177);font-weight:300' placeholder="如:找找茶" bindblur="nameInput" />
+		</view>
+
+		<view class='confirm-item02'>
+			<text style='margin-left:5px;'>电话</text>
+			<input class='inputphone' value="{{shop.phone}}" placeholder-style='font-size: 30rpx;color: rgb(177, 177, 177);font-weight:300' placeholder="前端显示电话号码" bindblur="phoneInput" />
+
+			<!-- <view class="section section_gap">
+				<view class="body-view">
+					<switch type="checkbox" checked="{{checked}}" bindchange="switch2Change" />
+					<text style="font-size:15px;">显示电话</text>
+				</view>
+			</view> -->
+		</view>
+
+		<view class='confirm-item02'>
+			<text style='margin-left:5px;'>银行</text>
+			<input class='inputphone' value="{{shop.phone}}" placeholder-style='font-size: 30rpx;color: rgb(177, 177, 177);font-weight:300' placeholder="前端显示电话号码" bindblur="phoneInput" />
+		</view>
+
+    <view class='confirm-item02'>
+			<text style='margin-left:5px;'>账号</text>
+			<input class='inputphone' value="{{shop.bankAccount}}" placeholder-style='font-size: 30rpx;color: rgb(177, 177, 177);font-weight:300' placeholder="前端显示电话号码" bindblur="phoneInput" />
+		</view>
+
+    <view class='confirm-item02'>
+			<text style='margin-left:5px;'>银行户主</text>
+			<input class='inputphone' value="{{shop.bankAccountOwner}}" placeholder-style='font-size: 30rpx;color: rgb(177, 177, 177);font-weight:300' placeholder="前端显示电话号码" bindblur="phoneInput" />
+		</view>
+
+		<!-- <view class='confirm-item02'>
+			<text style='margin-left:5px;'>描述</text>
+			<textarea maxlength="-1" placeholder-class="textareaclass" style='padding:5px;height:100px;margin:20rpx;border:1rpx solid #dcdcdc;width:75%;' cursor-spacing="150" bindinput="bodyInput" placeholder="请输入描述" value="{{shop.description}}" />
+			</view> -->
+
+		<!-- <view class='confirm-item03'>
+    <view style='margin-left:5px;'>会议室</view>
+    <view>{{tea.roomName}}</view>
+  </view>
+
+  <view class='confirm-item03'>
+    <view style='margin-left:5px;'>时间</view>
+    <view>{{tea.date}} {{tea.sstartTime}}-{{tea.sendTime}}</view>
+  </view> -->
+
+
+	</view>
+
+
+	<view class='reserve' catchtap='shopMapRegister'>提交</view>
+
+</view>

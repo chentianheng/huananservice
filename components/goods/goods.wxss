@@ -1,0 +1,110 @@
+.good {
+  /* background: white; */
+  /* margin-top: 10rpx;
+  padding-top: 10rpx; */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+
+.good-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  /* background-color: rgb(255, 255, 255); */
+  background-image: linear-gradient(180deg, #37322E 10%, #000000 100%);
+  /* box-shadow: 0px 8px 27px 0px rgba(28, 28, 27, 0.05); */
+  width: 350rpx;
+  height: 480rpx;
+  /* margin: 5rpx 0rpx 3rpx 8rpx; */
+  margin: calc((100% - 700rpx)/3);
+  position: relative;
+}
+
+.good-detail + .good-detail{
+  margin-right: 0
+}
+
+.good-detail:nth-child(1){
+  margin-right: 0
+}
+
+
+.good-item {
+
+}
+
+.classify {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+
+.good-name {
+  /* width: 100%; */
+  font-size: 30rpx;
+  color: #E0AC66;
+  padding: 0rpx 10rpx 0rpx 20rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 5rpx;
+}
+
+.pricecart {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 0rpx 20rpx 10rpx 18rpx; */
+  font-size: 28rpx;
+  width: 88%;
+}
+
+/* .pricecart image {
+  height: 45rpx;
+  width: 45rpx;
+} */
+
+.price {
+  position: absolute;
+  top: -2rpx;
+  left: 36rpx;
+  color: #E0AC66;
+  font-size: 32rpx;
+}
+
+.format-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 12px;
+  color: #E0AC66;
+  /* margin: 5rpx 0 5rpx 20rpx; */
+}
+
+.format-name text {
+  padding-right: 10rpx;
+   color: #E0AC66;
+}
+
+.clickcolect {
+  background-color: rgb(250, 250, 250);
+  font-size: 23rpx;
+  color: rgb(172, 172, 172);
+  line-height: 1.2;
+  height: 60rpx;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 300;
+}

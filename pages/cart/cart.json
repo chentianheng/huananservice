@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "购物车",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "emptycart": "/components/emptycart/emptycart",
+    "cart": "/components/cart/cart",
+    "nav": "/components/navSimple/navSimple"
+  }
+}

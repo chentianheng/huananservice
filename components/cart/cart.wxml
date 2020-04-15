@@ -1,0 +1,34 @@
+<view class='cartCon'>
+  <checkbox-group bindchange="checkboxChange02" class='cart-check'>
+    <label class="checkbox" wx:for="{{cartList}}" wx:for-index="index" style='display:flex;'>
+      <checkbox value="{{item.id}}" checked="{{item.checked}}" style='display:flex;align-items:center;' />
+      <view class='cart-image'>
+        <image src="{{item.imgUrl}}"></image>
+      </view>
+      <view style='position:relative;margin-left:5px;width:100%;'>
+        <view class='cart-name'>
+          <text>{{item.name}}</text>
+        </view>
+        <view class='cart-remarks'>
+          <text>{{item.remarks}}</text>
+        </view>
+        <view class='cart-p-n'>
+          <view class='cart-price'>
+            <text style='font-size:25rpx;'>¥</text>
+            <text style='margin-left:5rpx;'>{{item.price/100}}</text>
+          </view>
+          <view class='cart-num'>
+            <view class='sub' catchtap='onSubTap' data-index="{{index}}">
+              <text>-</text>
+            </view>
+            <view class='numvalue'>{{item.count}}</view>
+            <view class='add' catchtap='onAddTap' data-index="{{index}}">
+              <text>+</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </label>
+  </checkbox-group>
+</view>

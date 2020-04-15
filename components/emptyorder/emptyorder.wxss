@@ -1,0 +1,26 @@
+.emptycart {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #878787;
+  font-size: 30rpx;
+}
+
+.emptycart image {
+  width: 60vw;
+  height: 60vw;
+  margin-top: 20%;
+  margin-bottom: 15px;
+}
+
+.shoping {
+  background-color: #d33d3e;
+  color: white;
+  padding: 15rpx 30rpx;
+  border-radius: 5rpx;
+  margin-top: 30px;
+  letter-spacing: 2rpx;
+  font-weight: 300
+}

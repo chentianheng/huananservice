@@ -1,0 +1,21 @@
+<nav title="{{title}}"></nav>
+<view style="font-size: 15px;margin-left: 15rpx;font-weight: bold;margin-bottom:15rpx;margin-top:{{titleBarHeight+statusBarHeight}}px;">共 {{subordinateCount}} 人</view>
+
+<view wx:for="{{subordinate}}" style="display: flex;padding: 5px 10px;border-bottom: 1rpx solid rgba(0,0,0,0.1);position: relative;">
+	<view>
+		<image style="width: 60px;height: 60px;border-radius: 50%;" src="{{item.wxUser.avatarUrl}}"></image>
+	</view>
+	<view style="margin-left: 15rpx;">
+		<text style="font-size: 16px;">{{item.wxUser.nickName}}</text>
+		<view style="font-size: 14px;color: rgba(0,0,0,0.6);margin-top: 10rpx;">
+			<text>会员号:</text>
+			<text>{{item.num}}</text>
+		</view>
+		<view style="font-size: 14px;color: rgba(0,0,0,0.6);margin-top: 10rpx;">
+			<text>地区:</text>
+			<text>{{item.wxUser.province}}·{{item.wxUser.city}}</text>
+		</view>
+	</view>
+
+	<view style="position: absolute;width: 180rpx;font-size: 28rpx;background-color: #d33d3e;color: #fff;right: 10rpx;bottom: 17rpx;height: 65rpx;border-radius: 10rpx;display: flex;justify-content: center;align-items: center;" catchtap="bindStaff" data-customerId="{{item.id}}">绑定员工</view>
+</view>

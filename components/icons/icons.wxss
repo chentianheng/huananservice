@@ -1,0 +1,27 @@
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  padding-bottom: 7px;
+}
+
+.icon-item {
+  width: 20%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.icon-item image {
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.icon-name {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 300;
+}

@@ -1,0 +1,21 @@
+<view class='emptycart'>
+    <image mode="widthFix" src='/images/icons/emptycart.png'></image>
+    <!-- <text>购物车是空的</text> -->
+
+    <view class='shoping' catchtap='onShopTap'>随便逛逛</view>
+</view>
+
+
+<!-- <view class='navigationTitle' style="position:fixed;top:0px;z-index:2;height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+  <view class='navBack'>
+    <view class='backImg' catchtap='onbackTap'>
+      <image src='/images/icons/arrow-left.png' style='height:17px;width:15px;'></image>
+    </view>
+    <view class='navHome' catchtap='onbackHomeTap'>
+      <image src='/images/icons/home_white.png' style='height:22px;width:22px;'></image>
+    </view>
+  </view>
+  <view class='navtitle'>
+    <text>{{title}}</text>
+  </view>
+</view> -->

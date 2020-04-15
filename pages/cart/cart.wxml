@@ -1,0 +1,74 @@
+<view>
+ <nav title="{{title}}"></nav>
+  <view class='shopCon' style='margin-top:{{statusBarHeight+titleBarHeight}}px;'>
+    <view style='display:flex;margin-left:10px;'>
+      <!-- <checkbox value="{{item.id}}" checked="{{item.checked}}" style='display:flex;align-items:center;' bindchange="checkboxChange01" /> -->
+      <checkbox-group bindchange="checkboxChange01">
+        <label class="checkbox">
+             <checkbox value="{{all}}" checked="{{item.checked}}" style='display:flex;align-items:center;' bindchange="checkboxChange01" />
+        </label>
+      </checkbox-group>
+      <text>全选</text>
+    </view>
+    <view catchtap='onEditTap'>
+      <text>{{edit}}</text>
+    </view>
+
+  </view>
+  <view class='cartCon'>
+    <checkbox-group bindchange="checkboxChange02" class='cart-check'>
+      <label class="checkbox" wx:for="{{cartList}}" wx:for-index="index" style='display:flex;'>
+        <checkbox value="{{item.id}}" checked="{{item.checked}}" style='display:flex;align-items:center;' />
+        <view class='cart-image'>
+          <image src="{{item.imgUrl}}"></image>
+        </view>
+        <view style='position:relative;margin-left:5px;width:100%;'>
+          <view class='cart-name'>
+            <text>{{item.name}}</text>
+          </view>
+          <view class='cart-remarks'>
+            <text>{{item.remarks}}</text>
+          </view>
+          <view class='cart-p-n'>
+            <view class='cart-price'>
+              <text style='font-size:25rpx;'>¥</text>
+              <text style='margin-left:5rpx;'>{{item.price/100}}</text>
+            </view>
+            <view class='cart-num'>
+              <view class='sub' catchtap='onSubTap' data-index="{{index}}">
+                <text>-</text>
+              </view>
+              <view class='numvalue'>{{carts[index].count}}</view>
+              <view class='add' catchtap='onAddTap' data-index="{{index}}">
+                <text>+</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </label>
+    </checkbox-group>
+  </view>
+
+  <!-- <view wx-if="{{cartList.length > 0}}">
+    <cart cartList='{{cartList}}' bind:click_btn="onCartTap"></cart>
+  </view> -->
+
+  <view class='bottomBtn' wx:if="{{!emptyCart}}">
+    <view class='count'>
+      <view style='display:none'>
+        <switch type="checkbox" bindchange="switch1Change" style='margin-left:50rpx;' />
+        <text style='font-size:35rpx;'>全选</text>
+      </view>
+      <view style='margin-right:20rpx;color:#d33d3e;' wx-if="{{!editflag}}">
+        <text>合计:</text>
+        <text>￥: {{totalPrice/100}}</text>
+      </view>
+
+    </view>
+    <view class='submit' catchtap='comfirmOrder'>{{confirmFLag}}</view>
+  </view>
+
+  <view wx-if="{{cartList.length==0}}">
+    <emptycart></emptycart>
+  </view>
+</view>

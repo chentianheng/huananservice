@@ -1,0 +1,7 @@
+{
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "nav": "/components/navSimple/navSimple",
+    "article":"/components/articlelist/articlelist"
+  }
+}

@@ -1,0 +1,6 @@
+<view class='icons'>
+	<view class='icon-item' wx:for="{{iconList}}" wx:key="id" wx:for-index="index" catchtap='onIconTap' data-index="{{index}}">
+		<image src="{{item.imgUrl}}" mode="aspectFill"></image>
+		<text class="icon-name">{{item.name}}</text>
+	</view>
+</view>

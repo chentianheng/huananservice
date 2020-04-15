@@ -1,0 +1,63 @@
+<nav title="{{title}}"></nav>
+<view class='orderCon' style='padding-top:{{statusBarHeight+titleBarHeight}}px;'>
+  <view class='orderStatus'>
+    <view class='order-item' wx:for="{{orderStatus}}" wx:for-item="type" wx:for-index="index" wx:key="status" catchtap='onTypeTap' data-id="{{index}}">
+      <text style="{{choose.status == type.status?'color:#d53c3d':''}}">{{type.name}}</text>
+    </view>
+  </view>
+
+  <view class='order-c' wx:for="{{orders}}" wx:key="index" wx:for-item="order">
+    <view class='order-time'>
+      <text class='order-status-time'>{{order.updatedAt}}</text>
+      <text class='pay-notice' wx:if="{{order.status == 1}}">请30分钟内付款</text>
+      <text class='{{order.statusClass}}'>{{order.statusStr}}</text>
+    </view>
+    <view class='order-body' wx:for="{{order.products}}" wx:key="index" wx:for-item="product">
+      <image src="{{product.imgUrl}}"></image>
+      <view class='body'>
+        <view class='name'>
+          <text>{{product.name}}</text>
+          <text style='font-size:32rpx;color:black'>¥ {{product.price / 100}}</text>
+        </view>
+        <view class='name02'>
+          <text>规格: {{product.name}}</text>
+          <text>x {{product.count}}</text>
+        </view>
+        <view class='name02'>
+          <text>工艺: 生茶</text>
+        </view>
+      </view>
+    </view>
+    <view class='sumary' style='border:none' wx:if="{{order.status == 3}}">
+      <view>
+        <text>快递: {{order.express}}</text>
+      </view>
+      <view style='display:flex;' catchtap='onCopyTap' data-expressId="{{order.expressId}}">
+        <text style='margin-right:10rpx'>快递单号: {{order.expressId}}</text>
+        <image src='/images/icons/copy.png'></image>
+      </view>
+
+    </view>
+    <view class='sumary'>
+      <view>
+        <text>邮费: ¥ {{order.postage / 100}}</text>
+      </view>
+      <view>
+        <text>合计: </text>
+        <text>¥ {{order.totalPrice / 100}}</text>
+      </view>
+
+    </view>
+    <!-- <view class='sumary' wx:if="{{order.status == 3}}">
+      <text>快递: {{order.express}}</text>
+      <text>单号: {{order.expressId}}</text>
+    </view> -->
+    <view class='operate' wx:if="{{order.status == 1}}">
+      <view class='pay' catchtap='onPay' data-id='{{order.id}}'>支付</view>
+    </view>
+  </view>
+
+  <view wx-if="{{orders.length==0}}">
+    <emptyorder></emptyorder>
+  </view>
+</view>

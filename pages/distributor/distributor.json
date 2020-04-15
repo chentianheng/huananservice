@@ -1,0 +1,9 @@
+{
+	"navigationBarTitleText": "代理商",
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "nav": "/components/navSimple/navSimple"
+  }
+}

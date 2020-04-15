@@ -1,0 +1,47 @@
+<view class='goods'>
+	<!-- <view class='good-item' wx:for="{{goodList}}" wx:for-item="item" wx:for-index="tindex"> -->
+	<!-- <view class='classify' style='display:none'>
+      <text>{{item.classify}}</text>
+    </view> -->
+	<view class='good'>
+		<view class='good-detail' wx:for="{{goodList}}" wx:for-item="good" catchtap='onGoodTap' data-index="{{index}}">
+			<view style='text-align:center;'>
+				<image src="{{good.images[0].url?good.images[0].url:url}}" mode="aspectFit" style='width: 300rpx;height: 300rpx;border-top-left-radius: 10px;border-top-right-radius: 10px;margin:10rpx 0;'></image>
+			</view>
+			<view class='good-name'>
+				<text>{{good.name}}</text>
+			</view>
+			<view class='format-name'>
+				<text wx-if="{{good.year}}">{{good.year}}年</text>
+		<!-- 		<text wx-if="{{good.brand}}">{{good.brand}}</text> -->
+				<text wx-if="{{good.productionTechnology}}">{{good.productionTechnology}}</text>
+	<!-- 			<text wx-if="{{good.product.specification}}">{{good.product.specification}}</text> -->
+			</view>
+			<view class='pricecart'>
+				<view class='price'>
+					<text style='font-size:27rpx;'>￥</text>
+					<text>{{good.price}}</text>
+				</view>
+				<view style="display: flex;">
+						<text style='font-size:12px;color:#999'>销量:{{good.sellCount?good.sellCount:0}}
+            </text>
+				<!-- 	<image style="height:38rpx;width:38rpx;" catchtap="onCartTap" data-index="{{index}}" src="/images/icons/r-cart.png"></image> -->
+
+				</view>
+			</view>
+
+		<!-- 	<view class='clickcolect' bindtap='onCollectTap' data-index="{{tindex}}">
+				<view style='display:flex;align-items:center;margin-left:20rpx'>
+					<image src='/images/icons/star_lll.png' style='height:38rpx;width:38rpx;margin-right:5rpx;'></image>
+					<text style='color:#878787;'>收藏</text>
+					<text style='color:#878787;'>·{{good.product.interestedCount||'0'}}人</text>
+				</view>
+				<view style='display:flex;margin-right:20rpx;'>
+					<image style="height:40rpx;width:40rpx;" catchtap="onCartTap" src="/images/icons/r-cart.png"></image>
+				</view>
+			</view> -->
+
+		</view>
+	</view>
+	<!-- </view> -->
+</view>

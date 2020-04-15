@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "我的下线",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "nav": "/components/navSimple/navSimple"
+  }
+}

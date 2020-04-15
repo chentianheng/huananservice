@@ -1,0 +1,45 @@
+<view class='orderCon'>
+  <!-- <view style="position:sticky;top:0px;z-index:2;position:-webkit-sticky;">
+    <view class='navigationTitle' style='height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px'>
+      <view class='backImg' style="height:{{titleBarHeight}}px" catchtap='onbackTap'>
+        <image src='/images/icons/back.png' style='height:20px;width:20px;  margin-left:10px;margin-top:15rpx;'></image>
+      </view>
+      <text>收货地址</text>
+    </view>
+  </view> -->
+  <nav title="{{title}}"></nav>
+<view class='wechatAdress' catchtap='onChooseAddressTap' style='margin-top:{{titleBarHeight+statusBarHeight}}px'>
+    <view class='waddress'>
+      <image mode='aspectFill' src='/images/icons/wechat.png'></image>
+      <text style='margin-left:10px;'>获取微信收货地址</text>
+    </view>
+    <view class='arrowright'>
+      <image src='/images/icons/arrow-right.png'></image>
+    </view>
+  </view>
+  <radio-group class="radio-group">
+    <view class="radio" wx:for="{{addressList}}" data-index="{{index}}" bindtap='selectAddress'>
+      <radio checked="{{index == 0}}" style="display: flex;justify-content:center;align-items:center;"/>
+      <view style='flex:1'>
+        <view class='namephone'>
+          <view class='name'>{{item.userName}}</view>
+          <view class='phone'>{{item.telNumber}}</view>
+        </view>
+        <view class='address02'>
+          <text>{{item.provinceName}}</text>
+          <text>{{item.cityName}}</text>
+          <text>{{item.countyName}}</text>
+          <text>{{item.detailInfo}}</text>
+        </view>
+      </view>
+      <view catchtap="onEdit" data-id='{{item.id}}' class='operate'>
+        <view>
+          <image src='/images/icons/edit.png'></image>
+        </view>
+
+      </view>
+    </view>
+  </radio-group>
+  <view class="save" bindtap='onCreat'>新建地址</view>
+
+</view>

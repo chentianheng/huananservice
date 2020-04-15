@@ -1,0 +1,6 @@
+<view class='emptycart'>
+    <image mode="widthFix" src='/images/icons/emptyorder.png'></image>
+    <text>订单是空的</text>
+
+    <!-- <view class='shoping'>随便逛逛</view> -->
+</view>

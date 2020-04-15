@@ -1,0 +1,351 @@
+page {
+  background-color: #f7f7f7;
+}
+
+.navigationTitle {
+  width: 100%;
+  /* height: 62px; */
+  background-color: var(--theme-color);
+  font-size: 35rpx;
+  font-family: "SourceHanSansCN";
+  color: #fff;
+  display: flex;
+  align-items: center;
+  /* padding-top:20rpx; */
+  justify-content: center;
+  position: relative;
+}
+
+.backImg {
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 20rpx;
+  bottom: 0rpx;
+}
+
+.address {
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 25rpx;
+}
+
+.zhaozhaocha {
+  background-color: white;
+  padding: 20rpx 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.zhaozhaocha image {
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 10rpx;
+}
+
+.order-body {
+  display: flex;
+  padding: 30rpx 15rpx;
+}
+
+.order-body image {
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 78%;
+  margin-left: 20rpx;
+  line-height: 1.2em;
+  margin-top: 10rpx;
+}
+
+.name02 {
+  display: flex;
+  justify-content: space-between;
+  color: #878787;
+  font-size: 12px;
+}
+
+.columnList {
+  background-color: white;
+  margin: 20rpx 0;
+  padding: 0 20rpx;
+}
+
+.totalprice {
+  border-bottom: 1rpx solid #eee;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+
+.paytype {
+  border-bottom: 1rpx solid #eee;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+
+.confirmorder {
+  display: flex;
+  background-color: #d33d3e;
+  color: white;
+  height: 90rpx;
+  border-radius: 45rpx;
+  align-items: center;
+  width: 70%;
+  position: fixed;
+  right: 20rpx;
+  bottom: 50rpx;
+}
+
+.comfirm {
+  background-color: black;
+  color: white;
+  height: 90rpx;
+  border-radius: 45rpx;
+  width: 250rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+}
+
+.bottom {
+  width: 100%;
+  position: fixed;
+  bottom: 20rpx;
+  left: 20rpx;
+}
+
+.namephone {
+  padding: 20rpx 20rpx 10rpx 20rpx;
+  display: flex;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.no-address {
+  padding: 40rpx;
+  flex: 1;
+}
+
+.name {
+  /* font-size: 18px; */
+  font-weight: bold;
+  color: black;
+}
+
+.product-name {
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+}
+
+.product-price {
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.phone {
+  margin-left: 30rpx;
+  /* font-size: 18px; */
+  font-weight: bold;
+  color: black;
+}
+
+.address02 {
+  padding: 10rpx 25rpx 20rpx 20rpx;
+  font-size: 27rpx;
+  color: #333;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.text-right {
+  text-align: right;
+}
+
+.stepper {
+  width: 112px;
+  height: 34px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/*加号和减号*/
+
+.stepper text {
+  width: 35px;
+  line-height: 34px;
+  text-align: center;
+  float: left;
+}
+
+/*数值*/
+
+.stepper input {
+  width: 40px;
+  height: 34px;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  line-height: 25px;
+  color: #f44;
+  font-family: -apple-system-font, "Microsoft YaHei";
+}
+
+/*普通样式*/
+
+.stepper .normal {
+  color: #f44;
+}
+
+/*禁用样式*/
+
+.stepper .disabled {
+  color: #ccc;
+}
+
+.order-content {
+  /* padding: 10rpx; */
+}
+
+.postage-address {
+  background-color: white;
+  border-radius: 10rpx;
+  margin: 20rpx 10rpx 10rpx 10rpx;
+  padding: 10rpx 20rpx;
+}
+
+.postage-part {
+  padding: 20rpx 10rpx;
+  background-color: white
+}
+
+.radio-group {
+  padding-top: 15rpx;
+  display: flex;
+}
+
+.radio-view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-part {
+  /* border-bottom: 1rpx solid #eee; */
+  display: flex;
+  padding: 10rpx 20rpx
+}
+
+.address02 text {
+  /* padding-right: 10rpx; */
+  /* font-size: 28rpx; */
+}
+
+.postage-tag {
+  font-size: 15px;
+  /* font-weight: bold; */
+}
+
+.postage-price {
+  font-size: 24rpx;
+  color: #878787;
+}
+
+.card {
+  /* background-color: white; */
+  border-radius: 10rpx;
+  /* margin: 20rpx 10rpx; */
+  /* padding: 10rpx 20rpx; */
+}
+
+.product-body {
+  flex: 1;
+  padding-left: 15rpx;
+  line-height: 1.5;
+}
+
+.price-count {
+  /* flex:2; */
+}
+
+.product-summry {
+  display: flex;
+  line-height: 1.3;
+  padding: 10rpx;
+  padding-bottom:25rpx;
+}
+
+.summry-tag {
+  font-weight: 300;
+  flex: 1;
+}
+
+.summry-price-postage {
+  color: red;
+}
+
+.summry-price {
+  font-weight: bold;
+}
+.float-btn.service-btn {
+  bottom: 165rpx;
+}
+
+.float-btn.call-btn {
+  bottom: 285rpx;
+}
+.tips{
+  /* font-size:26rpx;
+border:1rpx solid #aaaaaa;
+display:inline;
+padding:5rpx 25rpx;
+border-radius:12rpx;
+margin:10rpx 10rpx;
+color:#333; */
+display:flex;
+font-size:29rpx;
+align-items:center;
+color:#333;
+border-top:1rpx solid #f7f7f7;
+padding:20rpx 10rpx;
+
+}
+.tips image{
+  height: 40rpx;
+  width:40rpx;
+}
+.line{
+  height:3rpx;
+background-color:#d53022;
+width:15px;
+margin-right: 5px
+}
+.line02{
+  height:3rpx;
+background-color:#5c93fc;
+width:15px;
+margin-right: 5px
+}

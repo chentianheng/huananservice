@@ -1,0 +1,9 @@
+{
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "我的订单",
+  "navigationBarBackgroundColor": "#fff",
+  "usingComponents": {
+    "emptyorder": "/components/emptyorder/emptyorder",
+    "nav": "/components/navSimple/navSimple"
+  }
+}

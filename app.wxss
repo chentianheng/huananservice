@@ -1,0 +1,85 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+
+
+page {
+  --theme-color: #850005;
+  height: 100%;
+    font-family: -apple-system-font, "Helvetica Neue", sans-serif;  
+  font-size:32rpx;
+}
+
+/* .omit {
+  overflow: hidden;
+  word-break: break-all;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+} */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spacebetween{
+  display: flex;
+  justify-content: space-between;
+}
+.h15{
+  font-size: 15px
+}
+.h18{
+  font-size: 18px
+}
+
+.c-subtitle{
+  color: #818181
+}
+
+.b-green{
+  background-color: #18ac18;
+}
+.b-red{
+  background-color: #d33d3e;
+}
+.b-grey{
+ color: #5c93b2
+}
+
+.float-btn {
+  position: fixed;
+  right: 27px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 14px;
+  box-shadow: 0 3px 25px rgba(0, 0, 0, 0.1);
+}
+
+.float-btn image {
+  width: 22px;
+  display: block;
+}
+
+.float-btn::after {
+  border: none;
+}
+
+.float-btn.service-btn {
+  /* bottom: 165rpx; */
+  bottom: 285rpx;
+}
+
+.float-btn.call-btn {
+  /* bottom: 285rpx; */
+  bottom: 150rpx;
+}

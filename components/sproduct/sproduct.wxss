@@ -1,0 +1,36 @@
+
+.scrollview {
+  white-space: nowrap;
+  display: flex;
+  margin-left: 10rpx;
+  width: 95%;
+  /* width: 300rpx;
+  height: 200rpx; */
+}
+.work-img {
+  border-radius: 10rpx;
+  width: 215rpx;
+   height: 215rpx; 
+   display:block;
+  /* opacity: 0.6 */
+}
+
+.teaCon02 {
+  /* margin-left: 10rpx; */
+  font-size: 28rpx;
+  /* width: 80%; */
+  line-height: 1.3em;
+  padding-top: 5px;
+}
+.teaname {
+  width: 215rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sellcount02 {
+  /* padding: 10rpx 30rpx; */
+  font-size: 22rpx;
+  color: #999;
+  margin-right: 25rpx;
+}

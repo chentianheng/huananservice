@@ -1,0 +1,104 @@
+<view>
+  <!-- <view style="position:sticky;top:0px;z-index:2;position:-webkit-sticky;">
+    <view class='navigationTitle' style='height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px'>
+      <view class='backImg' style="height:{{titleBarHeight}}px" catchtap='onbackTap'>
+        <image src='/images/icons/back.png' style='height:20px;width:20px;  margin-left:10px;margin-top:15rpx;'></image>
+      </view>
+      <text>确认订单</text>
+    </view>
+  </view> -->
+  <nav title="{{title}}"></nav>
+  <view style='height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px'></view>
+  <scroll-view class="order-content" >
+    <view class="card">
+      <navigator class="address-part" url='../addresslist/addresslist'>
+        <view wx:if="{{address}}" style='display:flex;justify-content:center;align-items:flex-start;padding-top:18rpx;'>
+          <image mode='scaleToFill' style='width:40rpx;height:40rpx;' src='/images/icons/loc.png'></image>
+        </view>
+        <view wx:if="{{address}}" style='flex:1'>
+          <view class='namephone'>
+            <view class='name'>{{address.userName}}</view>
+            <view class='phone'>{{address.telNumber}}</view>
+          </view>
+          <view class='address02'>
+            <text>收货地址: {{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}</text>
+          </view>
+        </view>
+        <view wx:else class='no-address'>
+          <text>请选择地址</text>
+        </view>
+        <view style='display: flex;justify-content:center;align-items:center;'>
+          <image style='width:50rpx;height:50rpx;' src='/images/icons/back_tb.png'></image>
+        </view>
+      </navigator>
+      <!-- </view> -->
+      <view style='width:100%;display:flex;'>
+        <view wx:for="{{lineNum}}">
+          <view class='line' wx:if="{{item%2==0}}"></view>
+          <view class='line02' wx:else></view>
+        </view>
+      </view>
+      <view class='postage-part' style='display:none'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <view class="radio-view" wx:for="{{postageList}}" wx:for-index="index">
+            <radio class="radio" value="{{index}}" checked="{{item.checked}}" />
+            <view class="radio-content">
+              <view class='postage-tag'>{{item.tag}}</view>
+              <view class='postage-price'>运费 ¥{{postagePrice}}</view>
+            </view>
+            <!-- {{item.tag}}(运费 ¥{{item.price/100}}) -->
+          </view>
+        </radio-group>
+      </view>
+    </view>
+    <view class='card' style='background-color:white;margin-top:10rpx'>
+      <!-- <view class='zhaozhaocha'>
+        <image src='/images/icons/Icons.png'></image>
+        <text style='font-size:32rpx;margin-left:20rpx;'>易杨堂商城</text>
+        <text style='font-size:28rpx;margin-left:20rpx;color:#878787;'>最大最全的大益茶商城</text>
+      </view> -->
+      <view class='order-body' wx:for="{{product}}" wx:for-index='index'>
+        <image mode='scaleToFill' clsaa='product-image' src="{{item.imgUrl}}"></image>
+        <view class='product-body'>
+          <view class='product-name'>{{item.name}}</view>
+          <!-- <view class='name02'>规格: {{item.specification}}年</view> -->
+          <view class='name02'>年份: {{item.year}}年</view>
+          <view class='name02'>工艺: {{item.productionTechnology}}</view>
+        </view>
+        <view class='price-count'>
+          <view class='product-price'>¥ {{item.price/100}}</view>
+          <view class="stepper">
+            <!-- 减号 -->
+            <text class="{{count>1?'normal':'disabled'}}" bindtap="onMinus" data-index="{{index}}">-</text>
+            <!-- 数值 -->
+            <input type="number" bindchange="bindManual" value="{{item.count}}" />
+            <!-- 加号 -->
+            <text class="{{count<retail.stock?'normal':'disabled'}}" bindtap="onPlus" data-index="{{index}}">+</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='card' style='background-color:white;margin-top:10rpx;padding:0 20rpx;'>
+      <view class='product-summry'>
+        <view class='summry-tag'>商品金额</view>
+        <view class='summry-price'>¥ {{totalPrice /100}}</view>
+      </view>
+      <view class='product-summry'>
+        <view class='summry-tag'>运费</view>
+        <view class='summry-price summry-price-postage'>+ ¥{{postagePrice?postagePrice:0}}</view>
+      </view>
+    </view>
+
+
+    <view class='confirmorder'>
+      <view style='margin-left:50rpx;font-size:30rpx;'>合计 ¥ {{(totalPrice/100 + (postagePrice?postagePrice:0))}}</view>
+      <view class='comfirm' bindtap='postOrder'>确认订单</view>
+    </view>
+  </scroll-view>
+</view>
+<!-- <button class="float-btn service-btn" open-type="contact">
+  <image class="kefu" mode="widthFix" src="../../images/icons/kefu_r.png" />
+</button>
+<button class="float-btn call-btn" bindtap='phoneCall'>
+  <image class="kefu" mode="widthFix" src="../../images/icons/call_r.png" />
+</button> -->

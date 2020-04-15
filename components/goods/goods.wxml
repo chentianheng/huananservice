@@ -1,0 +1,30 @@
+<view class='goods'>
+	<view class='good'>
+		<view class='good-detail' wx:for="{{goodList}}" wx:for-item="good" catchtap='onGoodTap' data-index="{{index}}">
+			<view style='text-align:center;'>
+				<image src="{{good.product.images[0].url?good.product.images[0].url:url}}" mode="aspectFit" style='width: 220rpx;height: 220rpx;margin:10rpx 0;'></image>
+			</view>
+			<view class='good-name'>
+				<text>{{good.product.name}}</text>
+			</view>
+			<view class='format-name'>
+        <view style="width:90%;height:2rpx;border-bottom:1px dashed;border-color:#E0AC66;"></view>
+				<view style="width:40%;margin:10rpx;">
+          <text wx-if="{{good.product.year}}">{{good.product.year}}年</text>
+			    <text wx-if="{{good.product.productionTechnology}}">{{good.product.productionTechnology}}</text>
+        </view>
+			</view>
+			<view class='pricecart'>
+        <image src="/images/others/btn.png" style="width:300rpx;height:42rpx"></image>
+				<view class='price'>
+					<text style='font-size:27rpx;'>￥</text>
+					<text>{{good.product.price}}</text>
+				</view>
+				<!-- <view style="display: flex;">
+						<text style='font-size:12px;color:#999'>销量:{{good.product.sellCount?good.product.sellCount:0}}
+            </text>
+				</view> -->
+			</view>
+		</view>
+	</view>
+</view>

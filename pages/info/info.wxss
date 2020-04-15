@@ -1,0 +1,49 @@
+/* pages/info/info.wxss */
+.navigationTitle {
+  width: 100%;
+  /* height: 62px; */
+/*   background-color: #f9f9f9; */
+  font-size: 35rpx;
+  font-family: "SourceHanSansCN";
+  color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  /* padding-top:20rpx; */
+  /*  justify-content: center; */
+  position: relative;
+}
+
+.backImg {
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  /*  position: absolute;
+  left: 20rpx;
+  bottom: 0rpx; */
+}
+
+.yearColumn {
+  display: flex;
+  white-space: nowrap;
+  margin-left: 10rpx;
+  /* justify-content: center;
+  align-items: center; */
+  width: 100%;
+  font-size: 15px;
+}
+.forYear {
+  display: inline-block;
+  padding: 0 10px;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  text-align: center;
+  position: relative;
+  width: 25%;
+}
+
+.bottom-line {
+  background-color: var(--theme-color);
+  height: 5rpx;
+  width: 20rpx;
+  margin: 0 auto;
+}

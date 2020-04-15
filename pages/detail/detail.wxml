@@ -1,0 +1,207 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view wx:if="{{productInfo.status == 1}}" class="tabbar2">
+	<block>
+		<navigator open-type="switchTab" class="tabbar-w20 bg-white" url="../index/index">
+			<view class="c-block tabbar-text">首页</view>
+		</navigator>
+		<navigator class="tabbar-w20 bg-white" url="../cart/cart">
+			<view class="c-block tabbar-text">购物车</view>
+		</navigator>
+		<view class="tabbar-w30 bg-orange" wx:if="{{productInfo.status == 1}}" bindtap="onChangeCartShowState" data-status='1'>
+			<text class="c-block tabbar-text t-white">加入购物车</text>
+		</view>
+		<view class="tabbar-w30 bg-red" wx:if="{{productInfo.status == 1}}" bindtap="onChangeCartShowState" data-status='2'>
+			<text class="c-block tabbar-text t-white">立即购买</text>
+		</view>
+		<view class="tabbar-w60 bg-red t-white" wx:if="{{productInfo.status != 1}}">
+			<text class="c-block tabbar-text">商品已下架</text>
+		</view>
+	</block>
+	<!-- 	<block>
+		<navigator open-type="switchTab" class="tabbar-w40 bg-white" url="../index/index">
+			<text class="c-block tabbar-text">返回首页</text>
+		</navigator>
+		<view class="tabbar-w60 bg-red" bindtap="phoneCall">
+			<text class="c-block tabbar-text t-white">联系商家</text>
+		</view>
+	</block> -->
+</view>
+
+<view class='navBack' style="position: fixed;top:{{statusBarHeight+8}}px;left: 15px;z-index: 3;">
+	<view class='backImg' catchtap='onBackTap'>
+		<image src='/images/icons/arrow-left_b.png' style='height:17px;width:15px;'></image>
+	</view>
+	<view class='navHome' catchtap='onbackHomeTap'>
+		<image src='/images/icons/home_b.png' style='height:22px;width:22px;'></image>
+	</view>
+</view>
+
+
+<scroll-view class="Wrapscroll-view" lower-threshold="50" scroll-y="True" style="padding-bottom:80px;overflow-x: hidden; overflow-y: auto; " upper-threshold="50">
+	<swiper class="wx-swiper_hYihla" indicator-dots="True" lower-threshold="50" indicator-color="rgba(255,255,255,0.3)" indicator-active-color="rgba(255,255,255,0.6)">
+		<swiper-item class="c-full wx-swiper-item_8fzt6A" wx:for="{{productInfo.images}}">
+			<image class="wx-image_3yrqxb" mode="aspectFill" src="{{item.url}}" style="background-size: cover; background-position: center center; background-repeat: no-repeat; background-image:  url(goodsInfo.imgUrlPrefix + item.url); " />
+		</swiper-item>
+	</swiper>
+
+	<view class="white-panel mb12">
+		<view>
+			<view style="display: flex;align-items: center;">
+				<view style="width: 90%;">
+					<text class="product_title black-title">{{productInfo.name}}</text>
+				</view>
+				<view class="sharetof">
+					<!-- <image style='width:30rpx;height:30rpx;' mode='aspectFill' src='/images/icons/sharetof.png'></image> -->
+					<button style='background-color: white;width: 54rpx;padding: 0;' open-type='getUserInfo' bindgetuserinfo="onGotUserInfo">
+						<view style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-top:20rpx;">
+							<image style='width:30rpx;height:30rpx;' mode='aspectFill' src="/images/icons/sharetof.png"></image>
+							<text style="font-size: 22rpx;margin-top: 8rpx;color: #878787;">分享</text>
+						</view>
+					</button>
+				</view>
+			</view>
+			<view class='format-name'>
+				<text>{{productInfo.year}}年</text>
+				<text>{{productInfo.productionTechnology}}</text>
+				<text>{{productInfo.specification}}</text>
+			</view>
+			<text class="c-block text-price">￥{{productInfo.price}}</text>
+		</view>
+		<view class="line-panel wx-view_6H4Car">
+			<view class="c-block wx-text-4">运费：￥{{postage.basePrice? postage.basePrice/100 : 0}}</view>
+			<view class="c-block wx-text-4">销量：{{productInfo.sellCount?productInfo.sellCount:0}}</view>
+			<view class="c-block wx-text-4">剩余：{{chooseProduct.stock}}</view>
+		</view>
+	</view>
+
+	<!-- 商品详情 -->
+
+	<!-- 	wx:if="{{productInfo.type == 1}}" -->
+	<view class="white-panel p12">
+		<!-- 换了官方富文本组件 -->
+		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+	</view>
+
+	<!-- 商品详情与成交记录 -->
+	<view wx:if="{{productInfo.type == 2}}" class="white-panel">
+		<view class="weui-tab">
+			<view class="weui-navbar">
+				<block wx:for-items="{{tabs}}" wx:key="{{index}}">
+					<view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+						<view class="weui-navbar__title">{{item.label}}</view>
+					</view>
+				</block>
+				<view class="weui-navbar__slider" style="width:{{100/tabs.length}}%;transform: translateX({{sliderOffset}}px);"></view>
+			</view>
+		</view>
+		<view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+			<template is="wxParse" data="{{wxParseData:article.nodes}}" />
+		</view>
+		<view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+			<view class="table">
+				<view class="tr bg-grey">
+					<view class="th th_32">买家</view>
+					<view class="th th_32">成交时间</view>
+					<view class="th th_32">数量</view>
+				</view>
+				<block wx:for-items="{{orderRecords}}" wx:key="{{index}}">
+					<view class="tr">
+						<view class="td td_32">{{item.nickName}}</view>
+						<view class="td td_32 t-grey">{{item.createdAt}}</view>
+						<view class="td td_32">{{item.count}}</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+
+<!-- 加入购物车 -->
+<view class="{{showAddTOCart?'view_show':'view_hide'}}">
+	<view class="popup-wrapper" bindtap="onChangeCartShowState"></view>
+	<view class="popup-main popup-bottom">
+		<view class="img-pl">
+			<image src="{{chooseProduct.imgUrl}}" mode="widthFix" style="width: 95px; height: 95px; display: block" />
+		</view>
+		<view class="p12">
+			<view class="close pull-right" bindtap="onChangeCartShowState">
+				×
+			</view>
+			<view class="addcart-info">
+				<text class="c-block h5">{{productInfo.name}}</text>
+				<view class='format-name'>
+					<text>{{productInfo.year}}年</text>
+					<text>{{productInfo.productionTechnology}}</text>
+					<text>{{productInfo.specification}}</text>
+				</view>
+				<text class="c-block text-price small">￥{{chooseProduct.price/100}}</text>
+			</view>
+
+			<!-- 	添加规格 -->
+
+			<view style='margin-top:35rpx;' wx:for="{{productInfo.specs}}" wx:for-item="specs" wx:for-index="sindex">
+				<view class="specs-name">
+					<text>{{specs.name}}</text>
+					<text wx:if="{{!specs.choosed}}" style="color: #d33d3e;font-size: 23rpx;margin-left: 20rpx;">请选择{{specs.name}}</text>
+				</view>
+				<view class='spesclist'>
+					<view wx:for="{{specs.vals}}" wx:for-item="vals" wx:for-index="vindex" catchtap='onValsTap' data-specId="{{vals.specId}}" data-sindex="{{sindex}}" data-vindex="{{vindex}}" data-name="{{vals.name}}" data-work="{{vals.work}}" class="{{vals.work?'spesclist-item':'spesclist-item text-dec'}}" style="{{vals.choosed?'background-color: rgba(211,61,62,0.05);;color: #d33d3e;text-align: center;font-weight:bold;border: 1rpx solid #d33d3e;':''}}">
+						<text>{{vals.name}}</text>
+					</view>
+				</view>
+			</view>
+
+
+			<view class="mb12 mt12">
+				<view class="flex-panel">
+					<view class="wx-text-grey">剩余：{{chooseProduct.stock}}个</view>
+					<view class="text-right">
+						<view class="stepper">
+							<!-- 减号 -->
+							<text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+							<!-- 数值 -->
+							<input type="number" bindchange="bindManual" value="{{num}}" />
+							<!-- 加号 -->
+							<text class="{{plustatus}}" bindtap="bindPlus">+</text>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<text class="bg-red square-btn" bindtap="onConfirmTap">{{actValue}}</text>
+	</view>
+</view>
+
+<!-- 分享框 -->
+<view wx:if="{{showShareModal}}">
+	<view class="popup-wrapper" bindtap="changeShareModal"></view>
+	<view class="popup-bottom share-modal">
+		<button open-type="share" class="wechat">
+			<view class="text-center" >
+				<image mode="aspectFit" src="/images/icons/wechat2.png" />
+				<view>分享给朋友</view>
+			</view>
+		</button>
+		<button bindtap="makeGoodsCard" class="goods">
+			<view class="text-center">
+				<image mode="aspectFit" src="/images/icons/goods2.png" />
+				<view>生成商品海报</view>
+			</view>
+		</button>
+	</view>
+</view>
+
+
+<!-- <view class="fixed-btn">
+	<button open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+		<image class="kefu" mode="widthFix" src="/images/icons/share.png"></image>
+	</button>
+
+	<button class="service-btn" open-type="contact">
+		<image class="kefu" mode="widthFix" src="/images/icons/kefu_r.png" />
+	</button>
+</view>
+ -->
+
+<!--  -->
+<canvas wx:if="{{showCanvas}}" style="width:{{windowWidth}}px;height:{{windowWidth*1.5}}px" canvas-id="{{goodsCanvasId}}"></canvas>

@@ -1,0 +1,94 @@
+<view>
+<view style="position:sticky;top:0px;z-index:2;position:-webkit-sticky;">
+	<view class='titleCon' style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+		<view class='AvatarUrl'>
+			<image class='Avatar' src='/images/icons/icon-white.png'></image>
+		</view>
+
+		<view class="dwh">
+			<view style="font-weight: 300;">巅味号</view>
+			<view style='width:4rpx;height:15rpx;background: #fff;margin: 0 8rpx;'></view>
+			<view style="font-size: 32rpx;color:#fff;font-weight:300">专注普洱甜茶</view>
+		</view>
+	</view>
+</view>
+<!-- 搜索框 -->
+<!-- <view style="position:sticky;top:{{statusBarHeight+titleBarHeight}}px;z-index:2;position:-webkit-sticky;">
+	<view class='searchCon'>
+		<navigator class='search' url='../search/search'>
+			<icon style='padding-left:11px;' color="#d33d3e" type="search" size="18"></icon>
+			<text style='color:#7d7a7a;margin-left:7px;'>搜索茶名字</text>
+		</navigator>
+	</view>
+</view> -->
+
+<!-- banner -->
+<view class="banner-container" style="background-image: url(https://gdj.yf-gz.cn/file/1586841879311_6b7c18a723dd6a51bddc5bcee7ddce3a.jpg)">
+</view>
+
+<!-- 选料 -->
+<view class="info-container">
+   <image class="info-icon" src="/images/others/resource.png"></image>
+   <image class="info-title" src="/images/others/resource-title.png"></image>
+   <view style="width:540rpx;height:2rpx;background-color:#E0AC66"></view>
+   <image class="info-detail" src="/images/others/resource-detail.png"></image>
+</view>
+
+<image style="width:100%;height:500rpx;" src="https://gdj.yf-gz.cn/file/1586700078872_3db0a6f0f201bbc26f174dc9d9b2901f.png"></image>
+
+<!-- icon -->
+<!-- <icons iconList='{{classifyList}}' bind:click_btn="onIconTap"></icons> -->
+
+<!-- 工艺 -->
+<view class="info-container" style="height:120rpx">
+   <image class="info-icon" style="height:34rpx" src="/images/others/tech.png"></image>
+   <image class="info-title" src="/images/others/tech-title.png"></image>
+   <view style="width:540rpx;height:2rpx;background-color:#E0AC66;"></view>
+</view>
+
+<view class="long-detail" style="margin-top:30rpx">
+  <image class="arrow" src="/images/icons/arrow-right_w.png"></image>
+  <image class="arrow-2" src="/images/icons/arrow-right_w.png"></image>
+  <view style="display:flex;width:16370rpx">
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586688730608_999473e7156f6deef6b0b21d91b5227b.png"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687673470_cf8a2cff4b72f509c9401744a749a6df.jpg"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687722445_41635ee405f230ac3e5ed9fe5e7274fe.jpg"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687736518_9646b380edcd66f730d0d7076428c102.jpg"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687759316_51831e9b2b4eed1a8c13fbabe9930e44.jpg"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687771824_89513bd7c77ad2407f9f999f09f21329.jpg"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687784308_10b097b74c9459f27972ed3a4b5dd284.jpg"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687797372_4f324727ff676f939ca018e113145b8f.jpg"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687815572_bcc34d873227057ddf58580b90d9e174.jpg"></image>
+    <image class="tech-img" src="https://gdj.yf-gz.cn/file/1586687829002_5b8a51f485fcfa9cd8706a710e7ad749.jpg"></image>
+    <image style="height:414rpx;width:250rpx" src="https://gdj.yf-gz.cn/file/1586687841468_b1ea5b68975af2ac79bb08ce152c1e47.png"></image>
+  </view>
+</view>
+
+<!-- 品相 -->
+<view class="info-container" style="height:126rpx;margin-top:40rpx">
+   <image class="info-icon" style="width:52rpx;height:52rpx" src="/images/others/look.png"></image>
+   <image class="info-title" src="/images/others/look-title.png"></image>
+   <view style="width:540rpx;height:2rpx;background-color:#E0AC66;"></view>
+</view>
+
+<view class="info-container" style="height:auto;">
+  <image class="look-img" src="https://gdj.yf-gz.cn/file/1586840397081_bd472b53a00f9a52df3a14a7bc7500fe.png"></image>
+</view>
+
+<!-- 热销 -->
+<!-- <image src="https://gdj.yf-gz.cn/file/1586696566254_d0e27538a9caed3aad74e36edb90b055.png" style="width:100%;height:360rpx"></image> -->
+
+<!-- <view class='decoration' wx:for="{{h_goodList}}" wx:for-item="recommend">
+	<view class="panel_title">
+		<view style="border-left: 0rpx solid #666;">
+			<text class="recommend-title" style="">{{recommend.name}}</text>
+		</view>
+	</view>
+	<sproduct products="{{recommend.products}}" bind:click_btn="onTeaTap"></sproduct>
+</view> -->
+
+<view wx:for="{{s_goodList}}" wx:for-item="goods" wx:for-index="sindex">
+	<view class="goods-title" style="">{{goods.name}}</view>
+	<goods s_index="{{sindex}}" goodList='{{goods.products}}' bind:click_btn="onGoodTap" bind:cart_btn="cart_btn"></goods>
+</view>
+</view>

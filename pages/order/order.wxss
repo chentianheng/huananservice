@@ -1,0 +1,156 @@
+/* pages/order/order.wxss */
+
+page {
+  background-color: #f7f7f7;
+}
+
+.orderCon {
+  /* background-color:white; */
+}
+
+.navigationTitle {
+  width: 100%;
+  /* height: 62px; */
+  background-color: var(--theme-color);
+  font-size: 35rpx;
+  font-family: "SourceHanSansCN";
+  color: #fff;
+  display: flex;
+  align-items: center;
+  /* padding-top:20rpx; */
+  justify-content: center;
+  position: relative;
+}
+
+.backImg {
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 20rpx;
+  bottom: 0rpx;
+}
+
+.orderStatus {
+  display: flex;
+  background-color: white;
+  color: #333;
+  padding: 27rpx 0;
+  font-size: 30rpx;
+}
+
+.order-c {
+  margin-top: 15rpx;
+  background-color: white;
+}
+
+.order-item {
+  width: 25%;
+  text-align: center;
+}
+
+.order-time {
+  padding: 15rpx 20rpx;
+  display: flex;
+  color: #333;
+  justify-content: space-between;
+  /* border-bottom: 1rpx solid #eee; */
+}
+
+.order-body {
+  display: flex;
+  padding: 20rpx 20rpx;
+  background-color: #f7f7f7;
+}
+
+.order-body image {
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 78%;
+  margin-left: 20rpx;
+  line-height: 1.2em;
+  margin-top: 10rpx;
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.name02 {
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  font-size: 26rpx;
+  font-weight: 300;
+}
+
+.num {
+}
+
+.sumary {
+  text-align: right;
+  color: #333;
+  font-size: 28rpx;
+  padding: 20rpx 20rpx;
+  border-top: 1rpx solid #f7f7f7;
+  justify-content: space-between;
+  display: flex;
+}
+
+.sumary image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.operate {
+  text-align: right;
+  font-size: 30rpx;
+  padding: 10rpx 20rpx 20rpx 20rpx;
+}
+
+.pay {
+  border: 1px solid var(--theme-color);
+  border-radius: 30rpx;
+  display: inline;
+  padding: 5rpx 35rpx;
+  color: var(--theme-color);
+}
+
+.order-status-time {
+  color: grey;
+  font-size: 15px;
+}
+
+.pay-notice {
+  color: orange;
+  font-size: 15px;
+}
+
+.status-prepay {
+  color: var(--theme-color);
+  font-weight: bold;
+}
+
+.status-pay {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-complete {
+  color: green;
+  font-weight: bold;
+}
+
+.status-cancel {
+  color: grey;
+  font-weight: bold;
+}
+

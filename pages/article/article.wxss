@@ -1,0 +1,58 @@
+@import "../../wxParse/wxParse.wxss";
+
+page {
+  font-size: 28rpx;
+  background-color: white;
+}
+
+.ql-size-small .wxParse-inline {
+  font-size: 12px !important;
+}
+
+.wxParse-p {
+  font-size: 18px !important;
+}
+
+.ql-size-large .wxParse-inline {
+  font-size: 22px !important;
+}
+
+.ql-size-huge .wxParse-inline {
+  font-size: 28px !important;
+}
+
+.ql-align-center {
+  text-align: center;
+}
+
+.ql-align-right {
+  text-align: right;
+}
+
+.article-header__title {
+  padding: 20rpx 20rpx 10rpx;
+  font-size: 34rpx;
+  color: var(--title-colr);
+}
+
+.article-header__sub-title {
+  font-size: 30rpx;
+  padding: 0 20rpx 15rpx;
+  color: rgba(0,0,0,0.6);
+}
+.article-header__sub-msg {
+  font-size: 28rpx;
+  padding: 0 20rpx 15rpx;
+  color: rgba(0,0,0,0.6);
+  display: flex;
+justify-content: space-between;
+}
+
+.article-header__banner {
+  width: 100vw;
+}
+
+.article__detail {
+  padding: 20rpx 20rpx;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

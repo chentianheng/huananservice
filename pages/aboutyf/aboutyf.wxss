@@ -1,0 +1,119 @@
+.block-img {
+  width: 100%;
+}
+
+.h5 {
+  font-size: 16px;
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.panel {
+  padding: 0 18px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.pl-line {
+  margin-bottom: 35px;
+}
+
+.pl-line image {
+  width: 80%;
+  max-width: 80px;
+}
+
+.tt {
+  font-size: 15px;
+}
+
+.st {
+  color: grey;
+  font-size: 14px;
+  font-weight: light;
+}
+
+.panel.steps {
+  display:flex;
+flex-direction:column;
+justify-content:flex-start;
+align-items:flex-start;
+}
+
+.step .fl-hd {
+  margin-left: 10vw;
+  width: 50px;
+  justify-content: center;
+}
+
+.step .fl-hd span {
+  color: grey;
+  border: 1px solid #cbcfda;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 4px 9px;
+}
+
+.step {
+  margin-bottom: 25px;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  padding: 15px;
+}
+
+.contact a {
+  color: #44bdff;
+  font-size: 15px;
+  display: inline-block;
+  border: 1px solid #44bdff;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.footer {
+  font-size: 16px;
+  background: #f2f2f2;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.col-2 {
+  width: 50%;
+  display: inline-block;
+}
+
+.fl-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.navigationTitle {
+   width: 100%;
+  height: 140rpx;
+  background-color: var(--theme-color);
+  font-size: 35rpx;
+  font-family: "SourceHanSansCN";
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; 
+}
+
+.backImg {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 20rpx;
+  top: 10rpx;
+}

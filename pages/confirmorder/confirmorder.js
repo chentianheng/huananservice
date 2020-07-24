@@ -39,12 +39,13 @@ Page({
     console.log(app.globalData.cartList)
     var cartList = app.globalData.cartList
     var ids = this.processIds(cartList)
-    console.log(ids)
+    console.log('ids是',ids)
     that.setData({
       ids: ids,
       productId: cartList[0].productId,
       cartList: cartList
     })
+    that.getDefaultAddress();
     that.getProductList(ids)
     that.getWindowWidth()
   },
@@ -91,28 +92,34 @@ Page({
       subProductIds: ids
     }
     var num = 0
-    Product.getProductList(data).then(function (data) {
-      for (var idx in data.data){
+    Product.getProductList(data).then(function (res) {
+      // console.log('接口返回数据', res.data)
+      for (var idx in res.data){
         for (var i in that.data.cartList){
-          if (that.data.cartList[i].productId == data.data[idx].id){
+          // console.log('cartList', that.data.cartList[i])
+          // console.log('接口返回数据', res.data[idx])
+          if (that.data.cartList[i].subProductId == res.data[idx].subProductId){
             num = num + that.data.cartList[i].count
-            data.data[idx].count = that.data.cartList[i].count,
-              that.data.totalPrice = that.data.totalPrice + data.data[idx].price * that.data.cartList[i].count
+            res.data[idx].count = that.data.cartList[i].count,
+              that.data.totalPrice = that.data.totalPrice + res.data[idx].price * that.data.cartList[i].count
           }
         }
       }
+      console.log('处理后的数据', res.data)
       that.setData({
         num: num,
-        product: data.data,
+        product: res.data,
         totalPrice: that.data.totalPrice
       })
-      // that.listPostage();
+      that.listPostage();
     })
   },
   listPostage() {
     let that = this;
+    let address = that.data.address
+    
     var data = {
-      addressId: that.data.address.id
+      addressId: address.id
     }
     Postage.listPostage(data).then(function (data) {
       that.setData({
@@ -126,7 +133,7 @@ Page({
     const that = this
     let postagePrice = 0.0
     // var data = that.data.postage
-      console.log(data)
+      // console.log("邮费",data)
     if (that.data.num <= data.baseCount) {
       if (data.baseCount != null && data.basePrice!=null){
         postagePrice = data.basePrice / 100
@@ -249,8 +256,11 @@ Page({
   onPlus(e) {
     const that = this
     let index = e.currentTarget.dataset.index
+    // console.log('index是', e.currentTarget.dataset.index)
     let count = this.data.product[index].count
+    // console.log('count是', count)
     count++;
+    console.log('查看商品', this.data.product[index])
     if (count <= this.data.product[index].stock) {
       ++this.data.num
       this.data.product[index].count = count
@@ -273,10 +283,13 @@ Page({
   },
   /* 输入框事件 */
   bindManual: function (e) {
-    var count = e.detail.value;
+    var newCount = e.detail.value;
+    let index = e.currentTarget.dataset.index
+    let product = this.data.product
+    product[index].count = newCount
     // 将数值与状态写回  
     this.setData({
-      count: count
+      product
     });
   },
   onbackTap() {
@@ -350,12 +363,7 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
-  },
   phoneCall: function () {
     let that = this;
     wx.makePhoneCall({

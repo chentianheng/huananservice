@@ -2,7 +2,7 @@
 const Tools = require('../tools.js');
 const Api = require('../api.js');
 
-let Qrcode = {
+let Customer = {
   /**********************************************
     function:   getAdvertising
     author:     hcj
@@ -26,4 +26,4 @@ let Qrcode = {
   }
 }
 
-module.exports = Qrcode;
+module.exports = Customer;

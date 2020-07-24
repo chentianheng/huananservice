@@ -1,6 +1,6 @@
 <import src="../../wxParse/wxParse.wxml" />
-<nav title="{{article.classify.name}}"></nav>
-<view style="height:{{titleBarHeight+statusBarHeight}}px;width:100%;"></view>
+<!-- <nav title="{{article.classify.name}}"></nav> -->
+<!-- <view style="height:{{titleBarHeight+statusBarHeight}}px;width:100%;"></view> -->
 <view class="article__wrap">
 	<view class="article__header">
 		<!-- <image class="article-header__banner" mode="aspectFit" src="{{article.imgUrl}}"></image> -->
@@ -8,11 +8,17 @@
 		<view class="article-header__sub-title">{{article.introduction}}</view>
 
     <view class="article-header__sub-msg">
-     <text>{{article.classify.name}}</text>
+     <text>{{article.classifyName}}</text>
      <text>{{article.formatUpdated}}</text>
     </view>
 	</view>
-	<view class="article__detail" style='white-space:pre-wrap;'>
+	<!-- <view class=" detail-container" style='white-space:pre-wrap;'>
+		<template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+	</view> -->
+	
+</view>
+
+	<view class="detail-container">
+		<!-- 换了官方富文本组件 -->
 		<template is="wxParse" data="{{wxParseData:detail.nodes}}" />
 	</view>
-</view>

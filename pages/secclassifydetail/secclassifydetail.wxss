@@ -1,0 +1,113 @@
+/* pages/secclassifydetail/secclassifydetail.wxss */
+/* .bottomContainer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 156rpx;
+  border-top: 1px solid #70707015;
+  background: white;
+} */
+
+/* pages/submitpage/submitpage.wxss */
+page{
+  background: #F8F8F9;
+}
+
+.line{
+  width: 100%;
+  /* padding: 20rpx; */
+  background-color: #E1E1E1;
+  height: 2rpx;
+}
+
+.formContainer{
+  width: 100%;
+  background: white;
+  padding-top: 20px;
+}
+
+.subimtBase{
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .subimtBase label{
+  margin-top: 20px;
+} */
+
+
+.inputContainer{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  /* padding-bottom: 20px; */
+  
+}
+
+.inputContainer input {
+  /* border-bottom: 1px solid #E1E1E1; */
+  padding: 0.5em;
+}
+
+
+
+.bottomContainer{
+  /* position: fixed;
+  bottom: 0;
+  left: 0; */
+  width: 100%;
+  height: 156rpx;
+  /* border-top: 1px solid #70707015; */
+  background: white;
+}
+
+.wxBtn{
+  position: absolute;
+  right: -60px;
+  top: 5px;
+  font-size: 11px;
+  color: white;
+  background: var(--theme-color);
+  border-radius: 5px;
+  padding:2px 5px;
+}
+
+/* van */
+.vanContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  
+}
+
+.vanTitle{
+  font-size: 18px;
+  max-width: 440rpx;
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:1;  /*行数*/
+}
+
+.vanDesc{
+  font-size: 14px;
+  color: #999999;
+  max-width: 440rpx;
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:2;  /*行数*/
+}

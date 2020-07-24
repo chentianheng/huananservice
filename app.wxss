@@ -7,15 +7,35 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
-} 
+}
 
+.base-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
+button::after{
+border:none;
+}
 
 page {
-  --theme-color: #850005;
+  --theme-color:#3CA139;
   height: 100%;
     font-family: -apple-system-font, "Helvetica Neue", sans-serif;  
   font-size:32rpx;
+}
+
+.common-btn{
+  background: var(--theme-color);
+  width:492rpx;
+  height:84rpx;
+  opacity:1;
+  border-radius:5px;
+  color: white;
+  font-size: 16px;
 }
 
 /* .omit {
@@ -37,7 +57,8 @@ page {
   font-size: 15px
 }
 .h18{
-  font-size: 18px
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .c-subtitle{
@@ -82,4 +103,16 @@ page {
 .float-btn.call-btn {
   /* bottom: 285rpx; */
   bottom: 150rpx;
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+  border-color:var(--theme-color);
+  /* border: 2px solid var(--theme-color); */
+  background: white;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  background: var(--theme-color);
+  border-radius: 50%;
+  color: var(--theme-color);
 }

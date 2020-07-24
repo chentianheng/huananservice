@@ -3,12 +3,11 @@ const Tools = require('../tools.js');
 
 let Postage = {
   listPostage(data) {
-    /* return new Promise(function (resolve, reject) {
+     return new Promise(function (resolve, reject) {
       Tools.requestByLogin({
         url: '/api/wx/postage',
         method: 'get',
         isRes: true,
-        data:data
       },
         res => {
           resolve(res);
@@ -16,7 +15,7 @@ let Postage = {
         err => {
           reject(err);
         });
-    }); */
+    }); 
 
     return Request.request({
       url: '/api/wx/postage',

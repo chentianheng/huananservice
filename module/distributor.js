@@ -171,7 +171,7 @@ let Distributor = {
         });
     });
   },
-  bindCustomer(data){
+  bindStaff(data){
     return new Promise(function (resolve, reject) {
       Tools.requestByLogin({
         url: '/api/wx/distributor/bindStaff',
@@ -187,7 +187,24 @@ let Distributor = {
           reject(err);
         });
     });
-  }
+  },
+  bindCustomer(data) {
+    return new Promise(function (resolve, reject) {
+      Tools.requestByLogin({
+        url: '/api/wx/customer/bind',
+        method: 'post',
+        isRes: true,
+        isFormData: true,
+        data: data
+      },
+        res => {
+          resolve(res);
+        },
+        err => {
+          reject(err);
+        });
+    });
+  },
 }
 
 module.exports = Distributor;

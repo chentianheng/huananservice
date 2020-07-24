@@ -4,18 +4,77 @@ page {
   background-color: #f7f7f7;
 }
 
+.price-count{
+  z-index: 100;
+}
 .shopCon {
   padding-right: 10px;
   background-color: white;
-  padding-bottom: 5px;
   text-align: right;
-  color: #3e91ff;
+  /* color: #3e91ff; */
+  /* color: var(--theme-color); */
+  font-size: 16px;
   font-weight: 300;
-  font-size: 30rpx;
   display: flex;
   justify-content: space-between;
-  height: 80rpx;
+  height: 40px;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.product-price {
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.stepper {
+  width: 112px;
+  height: 34px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/*加号和减号*/
+
+.stepper text {
+  width: 35px;
+  line-height: 34px;
+  text-align: center;
+  float: left;
+}
+
+/*数值*/
+
+.stepper input {
+  width: 40px;
+  height: 34px;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 14px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  line-height: 25px;
+  /* color: #f44; */
+  font-family: -apple-system-font, "Microsoft YaHei";
+}
+
+/*普通样式*/
+
+.stepper .normal {
+  color: #f44;
+}
+
+/*禁用样式*/
+
+.stepper .disabled {
+  color: #ccc;
 }
 
 .shoplabel {
@@ -60,7 +119,29 @@ page {
   /* padding-bottom: 60px; */
 }
 
-.cart-check {}
+checkbox .wx-checkbox-input {
+  width: 40rpx;
+  height: 40rpx;
+  border: 2rpx solid rgba(153, 153, 153, 0.822);
+  border-radius: 100%;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: var(--theme-color);
+  border:2rpx solid var(--theme-color);
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 28rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
 
 .cart-image {
   margin: 5px;
@@ -89,6 +170,7 @@ page {
   position: absolute;
   bottom: 15rpx;
   width: 100%;
+  z-index: 1;
 }
 
 .cart-price {

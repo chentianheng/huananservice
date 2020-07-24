@@ -1,4 +1,5 @@
 // pages/linshi/linshi.js
+const Article = require('../../module/article.js');
 let app = getApp();
 Page({
 
@@ -6,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url: ''
+    url: '',
+    articleId:''
   },
 
   /**
@@ -14,52 +16,47 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
-    var url = options.url
+    var articleId = options.articleId
     this.setData({
-      url:url
+      articleId:articleId
     })
+    this.getArticle()
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  },
+  getArticle() {
+    const that = this;
+    let articleId = that.data.articleId;
+    /* Ajax.prototype.getArticleOne(articleId).then(res => {
+      let article = res.data.data;
+      that.parseHtml(article);
+      that.setData({
+        article
+      });
+    }); */
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+    Article.getOne(articleId).then(function (res) {
+      console.log('getArticle')
+      console.log(res)
+      let article = res.data.articleDTO;
+      let url = that.data.url;
+      url = article.content;
+      that.setData({
+        url
+      })
+      // let classifyList = that.data.classifyList
+      // article.formatUpdated = app.util.getDateDiff(article.updateTime);
+      // for(let ii in classifyList){
+      //   if(article.type == classifyList[ii].type){
+      //     article.classifyName = classifyList[ii].name
+      //   }
+      // }
+      // that.parseHtml(article);
+      // that.setData({
+      //   article,
+      //   title: article.title
+      // });
+    })
 
   },
-
   /**
    * 用户点击右上角分享
    */

@@ -1,9 +1,9 @@
-<nav title="{{title}}"></nav>
+<!-- <nav hidden='true' title="{{title}}"></nav> -->
 	<view>
-		<view style="height:{{titleBarHeight+statusBarHeight}}px;background:#f9f9f9;"></view>
+		<!-- <view style="height:{{titleBarHeight+statusBarHeight}}px;background:#f9f9f9;"></view> -->
 		<view class='navigationTitle' style='height:{{titleBarHeight+10}}px;'>
 			<scroll-view scroll-x="true" class='yearColumn'>
-				<view wx:for="{{classifyList}}" wx:for-index="index" class='forYear' style="{{item.choosed?'color:var(--theme-color);text-align: center;font-weight:bold;font-size: 16px;':''}}" catchtap='onColumnChoose' data-id="{{item.id}}">
+				<view wx:for="{{classifyList}}" wx:for-index="index" class='forYear' style="{{item.choosed?'color:var(--theme-color);text-align: center;font-weight:bold;':''}}" catchtap='onColumnChoose' data-id="{{item.type}}">
 					<text>{{item.name}}</text>
 					<image wx:if="{{ifnewSubscribe&&index==0}}" src="/images/icons/dot.png" style="height: 8px;width: 8px;position: absolute;right: 2rpx;top: 0;"></image>
 					<view style="height:8rpx;width:1rpx;"></view>

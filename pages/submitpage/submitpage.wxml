@@ -1,0 +1,75 @@
+<!--pages/submitpage/submitpage.wxml-->
+<view class="base-container" >
+  <form bindsubmit="formSubmit" class="formContainer">
+  <view style="padding:10px;display:flex;width:100%;" wx:if="{{oneClassificationId == 1}}">
+        <image mode="aspectFill" style="width:160rpx; height:160rpx;display:block;" src="{{bannerList[0].image}}"></image>
+        <view class="vanContainer">
+            <text class="vanTitle">{{truckDetailDTO.name}}</text>
+            <text class="vanDesc">{{truckDetailDTO.introduction}}</text>
+        </view>
+    </view>
+  <text class="h18" style="margin:20px" wx:if="{{oneClassificationId != 1}}">当前选择：{{classifyName}}</text>
+  <!-- 基本信息 -->
+    <view class="subimtBase">
+     <text class="h18" style="margin-bottom:10px">基本信息</text>
+     <view class="inputContainer">
+      <label for="name">姓名</label>
+      <input name="name" id="name" placeholder="请输入您的姓名" placeholder-style="color:#E1E1E1"></input>
+     </view>
+     <view class="inputContainer">
+      <label for="name">手机号</label>
+      <input name="telephone" id="name" placeholder="请输入您的11位手机号" maxlength="11" type="number" placeholder-style="color:#E1E1E1"></input>
+      <!-- <button class="wxBtn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">使用微信号</button> -->
+     </view>
+    </view>
+  <!-- 驾驶信息 -->
+  <view class="subimtBase" wx:if="{{oneClassificationId == 2}}">
+     <text class="h18" style="margin-bottom:10px">驾驶信息</text>
+     <label>驾龄是否三年以上？</label>
+     <radio-group name="drivingAge" class="inputContainer" style="width:288rpx;margin:5px">
+      <radio value="1" checked>是</radio>
+      <radio value="2">否</radio>
+     </radio-group>
+     <!--  -->
+     <label>驾驶证是否广州？</label>
+     <radio-group name="licenseAddress" class="inputContainer" style="width:288rpx;margin:5px">
+      <radio value="1" checked>是</radio>
+      <radio value="2">否</radio>
+     </radio-group>
+     <!--  -->
+     <label>是否有广州市网约车证（人证）？</label>
+     <radio-group name="rideCertificate" class="inputContainer" style="width:288rpx;margin:5px">
+      <radio value="1" checked>是</radio>
+      <radio value="2">否</radio>
+     </radio-group>
+  </view>
+  <!-- 车辆信息 -->
+    <view class="subimtBase" wx:if="{{oneClassificationId == 3  || oneClassificationId == 5 && twoClassificationId != 14}}">
+     <text class="h18" style="margin-bottom:10px">车辆信息</text>
+     <view class="inputContainer">
+      <label for="brand">品牌</label>
+      <input name="brand" id="brand" placeholder="请输入车辆品牌" placeholder-style="color:#E1E1E1"></input>
+     </view>
+     <view class="inputContainer">
+      <label for="model">型号</label>
+      <input name="model" id="model" placeholder="请输入车辆型号" placeholder-style="color:#E1E1E1"></input>
+     </view>
+  
+    </view>
+    <!-- 邀请码 -->
+    <view class="subimtBase">
+     <text class="h18" style="margin-bottom:10px">邀请码（非必填）</text>
+     <view class="inputContainer">
+      <label for="code">邀请码</label>
+      <input name="inviteCode" id="code" placeholder="请输入邀请码" placeholder-style="color:#E1E1E1"></input>
+     </view>
+  
+    </view>
+  <view class="base-container bottomContainer" >
+    <button formType="submit" class="common-btn base-container">{{oneClassificationId == 1?'获取底价':'提交资料'}}</button> 
+  </view>
+  </form>
+  <contact></contact>
+</view>
+ 
+

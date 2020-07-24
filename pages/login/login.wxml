@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view class="base-container">
+  <view style="width:100%">
+    <view style="z-index:2;height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;text-align:center;display: flex;align-items: center;justify-content: center;">登录    </view>
+  </view>
+  <image src="/images/others/logo.jpeg" style="width:146rpx;height:140rpx;margin-top:20%"></image>
+  <text style="font-size:32rpx;color:#D6D6D6;padding:1rem">巅味号-专注普洱甜茶</text>
+  <text style="font-size:44rpx;">您尚未登录</text>
+  <text style="font-size:24rpx;padding:1rem">请先登录再进行操作</text>
+  <view class="blank20"></view>
+  <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">立即登录</button>
+  <button class="cancle-btn" bindtap="btnBack">暂不登录</button>
+</view>

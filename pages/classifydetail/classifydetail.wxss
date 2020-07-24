@@ -1,0 +1,30 @@
+/* pages/classifydetail/classifydetail.wxss */
+/* page{
+  background-color: #000000;
+} */
+
+.base-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.banner{
+  width:100%;
+  margin: auto;
+}
+
+.swiper_show60 {
+  height: 40vw;
+  width: 100%;
+  background-position: 50% 50%;
+}
+
+.indexClassifty{
+  margin-top: 20rpx;
+  width: 732rpx;
+  height: 260rpx;
+  border-radius: 5px;
+}

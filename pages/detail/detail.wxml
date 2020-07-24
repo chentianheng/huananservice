@@ -1,4 +1,17 @@
 <import src="../../wxParse/wxParse.wxml" />
+<view style="position:relative">
+<!-- 固定的button -->
+	<button class="fixed-btn-1" open-type='getUserInfo' bindgetuserinfo="onGotUserInfo">
+						<view style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+							<image style='width:40rpx;height:40rpx;margin-top: 10rpx;'  src="/images/icons/share.png"></image>
+						</view>
+	</button>
+  <button class="fixed-btn-2" open-type="contact">
+  <view style="display: flex;flex-direction: column;justify-content: center;align-items: center;">
+							<image style='width:40rpx;height:40rpx;margin-top: 10rpx;'  src="/images/icons/contact.png"></image>
+						</view>
+  </button>
+
 <view wx:if="{{productInfo.status == 1}}" class="tabbar2">
 	<block>
 		<navigator open-type="switchTab" class="tabbar-w20 bg-white" url="../index/index">
@@ -7,12 +20,12 @@
 		<navigator class="tabbar-w20 bg-white" url="../cart/cart">
 			<view class="c-block tabbar-text">购物车</view>
 		</navigator>
-		<view class="tabbar-w30 bg-orange" wx:if="{{productInfo.status == 1}}" bindtap="onChangeCartShowState" data-status='1'>
+		<button class="tabbar-w30 bg-orange" wx:if="{{productInfo.status == 1}}" bindtap="getUserInfo" data-status='1'>
 			<text class="c-block tabbar-text t-white">加入购物车</text>
-		</view>
-		<view class="tabbar-w30 bg-red" wx:if="{{productInfo.status == 1}}" bindtap="onChangeCartShowState" data-status='2'>
+		</button>
+		<button class="tabbar-w30 bg-red" wx:if="{{productInfo.status == 1}}" bindtap="getUserInfo" data-status='2'>
 			<text class="c-block tabbar-text t-white">立即购买</text>
-		</view>
+		</button>
 		<view class="tabbar-w60 bg-red t-white" wx:if="{{productInfo.status != 1}}">
 			<text class="c-block tabbar-text">商品已下架</text>
 		</view>
@@ -27,12 +40,9 @@
 	</block> -->
 </view>
 
-<view class='navBack' style="position: fixed;top:{{statusBarHeight+8}}px;left: 15px;z-index: 3;">
-	<view class='backImg' catchtap='onBackTap'>
-		<image src='/images/icons/arrow-left_b.png' style='height:17px;width:15px;'></image>
-	</view>
-	<view class='navHome' catchtap='onbackHomeTap'>
-		<image src='/images/icons/home_b.png' style='height:22px;width:22px;'></image>
+<view class='navBack' style="position: fixed;top:{{statusBarHeight+8}}px;left: 15px;z-index: 3;" catchtap="onBackTap">
+	<view class='backImg' >
+		<image src='/images/icons/back.png' style='height:17px;width:17px;'></image>
 	</view>
 </view>
 
@@ -41,10 +51,11 @@
 	<swiper class="wx-swiper_hYihla" indicator-dots="True" lower-threshold="50" indicator-color="rgba(255,255,255,0.3)" indicator-active-color="rgba(255,255,255,0.6)">
 		<swiper-item class="c-full wx-swiper-item_8fzt6A" wx:for="{{productInfo.images}}">
 			<image class="wx-image_3yrqxb" mode="aspectFill" src="{{item.url}}" style="background-size: cover; background-position: center center; background-repeat: no-repeat; background-image:  url(goodsInfo.imgUrlPrefix + item.url); " />
+      <view class="c-full goods-bg"></view>
 		</swiper-item>
 	</swiper>
 
-	<view class="white-panel mb12">
+	<view class="white-panel">
 		<view>
 			<view style="display: flex;align-items: center;">
 				<view style="width: 90%;">
@@ -52,16 +63,11 @@
 				</view>
 				<view class="sharetof">
 					<!-- <image style='width:30rpx;height:30rpx;' mode='aspectFill' src='/images/icons/sharetof.png'></image> -->
-					<button style='background-color: white;width: 54rpx;padding: 0;' open-type='getUserInfo' bindgetuserinfo="onGotUserInfo">
-						<view style="display: flex;flex-direction: column;justify-content: center;align-items: center;margin-top:20rpx;">
-							<image style='width:30rpx;height:30rpx;' mode='aspectFill' src="/images/icons/sharetof.png"></image>
-							<text style="font-size: 22rpx;margin-top: 8rpx;color: #878787;">分享</text>
-						</view>
-					</button>
+				
 				</view>
 			</view>
 			<view class='format-name'>
-				<text>{{productInfo.year}}年</text>
+				<text wx:if='{{productInfo.year}}'>{{productInfo.year}}年</text>
 				<text>{{productInfo.productionTechnology}}</text>
 				<text>{{productInfo.specification}}</text>
 			</view>
@@ -74,10 +80,47 @@
 		</view>
 	</view>
 
-	<!-- 商品详情 -->
+  <!-- 评论 -->
+  <view class="white-panel">
+    <view class="title-container">
+    <text style="font-weight:700">用户评论</text>
+    <view style="display:flex;align-items: center;" bindtap="toComment">
+    <image class="comment-icon" src="/images/icons/comment.png"></image>
+    <text style="color:#8a8a8a;font-size:14px;margin-left:2px">写评论</text>
+    </view>
+    </view>
+    <scroll-view scroll-x="true" style="padding:20rpx 0;white-space: nowrap;width:100%">
 
+      <view class="empty-container" hidden="{{comment.hasComment}}" bindtap="toComment">
+      <text>暂无评论</text>
+      <text style="color:#5286FB;font-size:14px;margin-left:2px">去评论</text>
+      </view>
+      <view style="display:inline-flex;align-items: center;">
+        <view wx:for="{{comment.msgs}}" class="comment-container" hidden="{{!comment.hasComment}}">
+         <view style="display:flex;margin-bottom:20rpx;">
+          <image class="Avatar" src="{{item.customer.wxUser.avatarUrl?item.customer.wxUser.avatarUrl:imgUrl}}"></image>
+          <text class="Avatar-name">{{item.customer.wxUser.nickName?item.customer.wxUser.nickName:'匿名会员'}}</text>
+         </view>
+          <text class="comment-msg">{{item.msg}}</text>
+          <view style="display:flex;overflow:hidden">
+            <view class="comment-tags" wx:for="{{item.tags}}"  wx:if="{{index<4}}">
+              {{item.name}}
+            </view>
+          </view>
+      </view>
+      <view class="more-container" hidden="{{!comment.hasComment}}" bindtap="toCommentlist">
+      <text style="color:#707070;font-size:16px;margin-left:2px; -webkit-writing-mode: vertical-rl;writing-mode: vertical-rl;">查看更多评论</text>
+      <image style="width:15px;height:15px" src="/images/icons/right.png"></image>
+      </view>
+</view>
+    </scroll-view>
+  </view>
+
+
+
+	<!-- 商品详情 -->
 	<!-- 	wx:if="{{productInfo.type == 1}}" -->
-	<view class="white-panel p12">
+	<view class="detail-container">
 		<!-- 换了官方富文本组件 -->
 		<template is="wxParse" data="{{wxParseData:article.nodes}}" />
 	</view>
@@ -130,7 +173,7 @@
 			<view class="addcart-info">
 				<text class="c-block h5">{{productInfo.name}}</text>
 				<view class='format-name'>
-					<text>{{productInfo.year}}年</text>
+          <text wx-if="{{productInfo.year}}">{{productInfo.year}}年</text>
 					<text>{{productInfo.productionTechnology}}</text>
 					<text>{{productInfo.specification}}</text>
 				</view>
@@ -205,3 +248,4 @@
 
 <!--  -->
 <canvas wx:if="{{showCanvas}}" style="width:{{windowWidth}}px;height:{{windowWidth*1.5}}px" canvas-id="{{goodsCanvasId}}"></canvas>
+</view>

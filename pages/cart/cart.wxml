@@ -1,21 +1,24 @@
 <view>
- <nav title="{{title}}"></nav>
+ <nav title="{{title}}" whiteBg="{{true}}"></nav>
   <view class='shopCon' style='margin-top:{{statusBarHeight+titleBarHeight}}px;'>
-    <view style='display:flex;margin-left:10px;'>
+    <view style='display:flex;margin-left:10px;justify-content: center;align-items: center'>
       <!-- <checkbox value="{{item.id}}" checked="{{item.checked}}" style='display:flex;align-items:center;' bindchange="checkboxChange01" /> -->
       <checkbox-group bindchange="checkboxChange01">
-        <label class="checkbox">
-             <checkbox value="{{all}}" checked="{{item.checked}}" style='display:flex;align-items:center;' bindchange="checkboxChange01" />
+        <label >
+             <checkbox class="checkbox" value="{{all}}" checked="{{item.checked}}" style='display:flex;align-items:center;' bindchange="checkboxChange01" />
         </label>
       </checkbox-group>
-      <text>全选</text>
+      <view>
+       <text>全选</text>
+      </view>
+      
     </view>
-    <view catchtap='onEditTap'>
+    <view catchtap='onEditTap' style="margin-right:20rpx;">
       <text>{{edit}}</text>
     </view>
 
   </view>
-  <view class='cartCon'>
+  <view class='cartCon' style='margin-top:{{statusBarHeight+titleBarHeight+40}}px;'>
     <checkbox-group bindchange="checkboxChange02" class='cart-check'>
       <label class="checkbox" wx:for="{{cartList}}" wx:for-index="index" style='display:flex;'>
         <checkbox value="{{item.id}}" checked="{{item.checked}}" style='display:flex;align-items:center;' />
@@ -34,7 +37,7 @@
               <text style='font-size:25rpx;'>¥</text>
               <text style='margin-left:5rpx;'>{{item.price/100}}</text>
             </view>
-            <view class='cart-num'>
+            <!-- <view class='cart-num'>
               <view class='sub' catchtap='onSubTap' data-index="{{index}}">
                 <text>-</text>
               </view>
@@ -43,7 +46,21 @@
                 <text>+</text>
               </view>
             </view>
+          </view> -->
+           <view>
+          <!-- <view class='product-price'>¥ {{item.price/100}}</view> -->
+          <view class="stepper">
+            <!-- 减号 -->
+            <text class="{{item.count>1?'normal':'disabled'}}" catchtap="onMinus" data-index="{{index}}">-</text>
+            <!-- 数值 -->
+            <text style="fontsize:14px; border-left: 1px solid #ccc;border-right: 1px solid #ccc;">{{item.count}}</text>
+            <!-- 加号 -->
+            <text class="{{item.count<99?'normal':'disabled'}}" catchtap="onPlus" data-index="{{index}}">+</text>
           </view>
+        </view>
+      </view>
+
+
         </view>
       </label>
     </checkbox-group>
@@ -71,4 +88,6 @@
   <view wx-if="{{cartList.length==0}}">
     <emptycart></emptycart>
   </view>
+
+  <view style="width:100%;height:200rpx;backgroud-color:#d33d3e;"></view>
 </view>

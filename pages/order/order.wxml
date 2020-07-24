@@ -1,4 +1,4 @@
-<nav title="{{title}}"></nav>
+<nav title="{{title}}" whiteBg="{{true}}"></nav>
 <view class='orderCon' style='padding-top:{{statusBarHeight+titleBarHeight}}px;'>
   <view class='orderStatus'>
     <view class='order-item' wx:for="{{orderStatus}}" wx:for-item="type" wx:for-index="index" wx:key="status" catchtap='onTypeTap' data-id="{{index}}">

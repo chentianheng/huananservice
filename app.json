@@ -1,37 +1,43 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/search/search",
-    "pages/staff/staff",
+    "pages/list/list",
     "pages/website/website",
     "pages/article/article",
     "pages/detail/detail",
-    "pages/test/test",
-    "pages/distributor/distributor",
     "pages/info/info",
     "pages/subordinate/subordinate",
     "pages/cart/cart",
     "pages/order/order",
     "pages/confirmorder/confirmorder",
-    "pages/list/list",
     "pages/my/my",
     "pages/addresslist/addresslist",
     "pages/logs/logs",
     "pages/customer/customer",
-    "pages/protocol/protocol"
+    "pages/login/login",
+    "pages/classifydetail/classifydetail",
+    "pages/secclassifydetail/secclassifydetail",
+    "pages/submitpage/submitpage",
+    "pages/vanlist/vanlist",
+    "pages/vandetail/vandetail",
+    "components/contact/contact",
+    "pages/servicedetail/servicedetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationBarTextStyle": "black"
   },
-  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "color": "#000",
-    "selectedColor": "#850005",
+    "selectedColor": "#3CA139",
     "borderStyle": "white",
     "backgroundColor": "#ffffff",
     "list": [
@@ -43,13 +49,13 @@
       },
       {
         "pagePath": "pages/list/list",
-        "text": "系列",
-        "iconPath": "images/icons/list_void.png",
-        "selectedIconPath": "/images/icons/list_black.png"
+        "text": "商城",
+        "iconPath": "images/icons/shop_void.png",
+        "selectedIconPath": "/images/icons/shop.png"
       },
       {
         "pagePath": "pages/info/info",
-        "text": "学堂",
+        "text": "资讯",
         "iconPath": "images/icons/info.png",
         "selectedIconPath": "/images/icons/info_c.png"
       },

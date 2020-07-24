@@ -1,0 +1,10 @@
+/* components/contact/contact.wxss */
+.contactBtn{
+  margin-top: 10px;
+  width:126rpx;
+  height:96rpx;
+  background:rgb(255, 255, 255);
+  box-shadow:0px 3px 6px rgba(0,0,0,0.16);
+  opacity:1;
+  border-radius:30px 0px 0px 30px;
+}

@@ -1,7 +1,8 @@
 // pages/my/my.js
 const app = getApp()
-const Order = require('../../module/order.js');
-const Customer = require('../../module/customer.js');
+const User = require('../../module/user.js');
+// const Customer = require('../../module/customer.js');
+// const Distributor = require('../../module/distributor.js');
 Page({
 
   /**
@@ -12,12 +13,13 @@ Page({
     statusBarHeight:app.globalData.statusBarHeight,
     windowWidth:app.globalData.windowWidth,
     windowHeight:app.globalData.windowHeight,
+    superiorId: '',
     serviceList:[
       {
         name:'购物车',
         url:'/images/icons/list_icons_1.png',
         path:'../cart/cart',
-        show:true
+        show:false
       },
       {
         name:'我的收藏',
@@ -29,7 +31,7 @@ Page({
         name:'分销商',
         url:'/images/icons/ic_main_loan.png',
         path:'../distributor/distributor',
-        show:true
+        show:false
       }
     ],
     imgUrl:'/images/icons/acvartar.png'
@@ -39,112 +41,100 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    /* var data = {
-      "addressId":1
-    }
-    this.vipSubmit(data) */
-    this.getCustomer()
+    this.getUser()
   },
-  vipSubmit:function(data){
-    Order.vipSubmit(data).then(function (data) {
-      console.log(data)
+  jumpOther(){
+    wx.navigateToMiniProgram({
+      appId: 'wxc2088bd709a0f698',
+      path: 'page/me/me',
+      extraData: {
+        foo: 'bar'
+      },
+      envVersion: 'develop',
+      success(res) {
+        // 打开成功
+        console.log('成功')
+      }
     })
   },
-
-  getCustomer:function(e){
-    const that = this
-    Customer.getCustomer().then(function (data) {
-      console.log(data)
-      if(data){
-        that.data.serviceList[2].show = true
-      }else{
-        that.data.serviceList[2].show = false
-      }
-      that.setData({
-        customer:data,
-        serviceList: that.data.serviceList
-      })
+  callCusPhone(){
+    wx.makePhoneCall({
+      phoneNumber: '13711701527',
+    })
+  },
+  openLocation(){
+    wx.openLocation({
+      name:'华南新能源汽车服务',
+      address:'广州国际采购中心负一层',
+      latitude: 23.098769,
+      longitude: 113.370002,
     })
   },
   getUserInfo: function(e) {
     console.log(e.detail.userInfo);
+    let that = this;
     if (e.detail.userInfo) {
-      console.log('queding');
-      this.postUserInfo(e.detail.userInfo);
+      console.log('确定');
+      wx.login({
+        complete: (res) => {
+          console.log('code',res.code);
+          that.postUserInfo(e.detail.userInfo,res.code);
+        },
+      })
+      
     } else {
     }
   },
-  postUserInfo: function(data) {
+  postUserInfo: function(data,code) {
     var url = `${app.api.userInfo}`;
+    var telephone = 15521026970;
     var that = this;
+    // var data = {
+    //   "nickName": data.nickName,
+    //   "gender": data.gender,
+    //   "country": data.country,
+    //   "province": data.province,
+    //   "city": data.city,
+    //   "avatarUrl": data.avatarUrl
+    // }
     var data = {
-      "nickName": data.nickName,
-      "gender": data.gender,
-      "country": data.country,
-      "province": data.province,
-      "city": data.city,
-      "avatarUrl": data.avatarUrl
+      "name": data.nickName,
+      "telephone":telephone,
+      "avatar":data.avatarUrl,
+      "code":code
     }
     app.apiFunctions.requestUrl(
       url,
       'POST',
       true,
-      false,
+      true,
       data,
       function(data) {
-        if (data.status == 1) {
+        console.log(data);
+        if (data.status == '2000000') {
           console.log(data);
-          that.getCustomer()
+          let user = data.data.appLoginUser;
+          wx.setStorageSync('token', user.sessionId)
+          // that.getCustomer()
+          that.getUser()
         }
       }
     );
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getUser(){
+    let that = this 
+    let data = {
+      oneClassificationId : that.data.oneClassificationId,
+      twoClassificationId : that.data.twoClassificationId,
+      carId : that.data.carId || ''
+    }
+    User.getPersonalInfo(data).then(function(res){
+      console.log('res.data:',res.data)
+      that.setData({
+        appUserId : res.data.userInfoDTO.id,
+        userName : res.data.userInfoDTO.name,
+        avatar : res.data.userInfoDTO.avatar,
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

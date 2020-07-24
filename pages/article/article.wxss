@@ -55,4 +55,12 @@ justify-content: space-between;
 .article__detail {
   padding: 20rpx 20rpx;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.detail-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

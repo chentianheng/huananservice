@@ -1,6 +1,0 @@
-{
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "nav": "/components/navSimple/navSimple"
-  }
-}

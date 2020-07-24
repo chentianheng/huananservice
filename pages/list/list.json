@@ -1,5 +1,6 @@
 {
-  "navigationBarTextStyle": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "正在跳转商城..",
   "usingComponents": {
     "nav": "/components/navSimple/navSimple",
     "goods": "/components/goodList/goodList"

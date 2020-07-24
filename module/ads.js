@@ -4,9 +4,10 @@ const Api = require('../api.js');
 let Ads = {
   getAds(data) {
     return Request.request({
-      url: '/api/wx/ads',
-      method: 'get',
+      url: '/api/index/bannerList.json',
+      method: 'post',
       isRes: true,
+      isFormData: true,
       data: data
     })
   },

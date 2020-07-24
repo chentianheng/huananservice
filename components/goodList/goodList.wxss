@@ -5,14 +5,14 @@
 }
 
 .good-detail {
-  /* width: 50%;
-  margin: 7px 10px;
-  padding-bottom: 10rpx;
-  background-color: white;
-  border-radius: 5rpx; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 5px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 8px 27px 0px rgba(28, 28, 27, 0.05);
+  /* background-color: rgb(245, 245, 245); */
+  /* background-image: linear-gradient(180deg, #37322E 10%, #000000 100%); */
+  /* box-shadow: 0px 8px 27px 0px rgba(28, 28, 27, 0.05); */
   width: 350rpx;
   height: 520rpx;
   margin: calc((100% - 700rpx)/3);
@@ -27,6 +27,33 @@
   margin-right: 0
 }
 
+.goods-bg{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(180deg, #272727 10%, #000000 100%);
+  /* background-color: rgb(245, 245, 245); */
+  width: 350rpx;
+  height: 350rpx;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.good-detail + .good-detail{
+  margin-right: 0
+}
+
+.good-detail:nth-child(1){
+  margin-right: 0
+}
+
+.format-detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
 
 .classify {
   font-size: 30rpx;
@@ -40,8 +67,10 @@
 }
 
 .good-name {
+  /* width: 100%; */
   font-size: 30rpx;
-  color: #333;
+  color: #E0AC66;
+  /* color: black; */
   padding: 0rpx 10rpx 0rpx 20rpx;
   overflow: hidden;
   white-space: nowrap;
@@ -51,9 +80,12 @@
 
 .pricecart {
   display: flex;
-  justify-content: space-between;
+  position: relative;
+  /* justify-content: center; */
   align-items: center;
-  padding: 0rpx 20rpx 10rpx 18rpx;
+  /* padding: 0rpx 20rpx 10rpx 18rpx; */
+  font-size: 28rpx;
+  width: 80%;
 }
 
 .pricecart image {
@@ -62,18 +94,38 @@
 }
 
 .price {
-  color: #d33d3e;
-  font-size: 36rpx;
+  position: absolute;
+  top: -2rpx;
+  left: 36rpx;
+  color: #F5D6AD;
+  /* color: black; */
+  font-size: 32rpx;
 }
 
 .format-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   font-size: 12px;
-  margin: 5rpx 0 5rpx 20rpx;
-  color: rgba(0,0,0,0.5);
+  color: #E0AC66;
+  /* color: black; */
+  /* color: rgb(102, 102, 102); */
+  /* margin: 5rpx 0 5rpx 20rpx; */
 }
 
 .format-name text {
   padding-right: 10rpx;
+   color: #E0AC66;
+   /* color: rgb(102, 102, 102); */
+   display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:1;  /*行数*/
 }
 
 .clickcolect {

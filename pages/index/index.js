@@ -1,129 +1,63 @@
 //index.js
 //获取应用实例
-const app = getApp()
-const Classify = require('../../module/classify.js');
-const Showcase = require('../../module/showcase.js');
-const Product = require('../../module/product.js');
+
 const Ads = require('../../module/ads.js');
+const Index = require('../../module/index.js');
+
 Page({
   data: {
-    titleBarHeight: app.globalData.titleBarHeight,
-    statusBarHeight: app.globalData.statusBarHeight,
-    windowWidth: app.globalData.windowWidth,
-    windowHeight: app.globalData.windowHeight,
-    search: {
-      page: 1,
-      pageSize: 20
-    },
-    bannerList: [],
-    classifyList: []
+    bannerList:[],
+    classificationDTOList:[]
   },
-  onLoad: function () {
-    const that = this
-    that.getList()
-    that.getIconsList()
-    that.getAdvertising()
-    /* console.log(app.globalData.classifyList)
-    that.data.classifyList  = app.globalData.classifyList
-    that.setData({
-      classifyList:that.data.classifyList
-    }) */
-  /*   this.getIconsList() */
+  onLoad: function (options) {
+    this.getAdvertising()
+    this.getIndex()
   },
+
   getAdvertising: function (e) {
     var that = this;
+    let bannerList = that.data.bannerList
     var data = {
-      type: 'banner'
+      position : 1
     }
-    Ads.getAds(data).then(function (data) {
-      if (data.status == 1) {
-        that.setData({
-          bannerList: data.data
+    Ads.getAds(data).then(function (res) {
+      // console.log('ad',res.data.adDTOList)
+      bannerList = res.data.adDTOList
+      that.setData({
+        bannerList
+      })
+    })
+  },
+  
+  getIndex(){
+    let that = this
+    let classificationDTOList = that.data.classificationDTOList
+    Index.getIndex().then(function(res){
+      classificationDTOList = res.data.classificationDTOList
+      that.setData({
+        classificationDTOList
+      })
+    })
+  },
+  onDetailTap(e){
+    // console.log(e)
+    if(e.target.id == 2 || e.target.id == 3 ){
+        wx.navigateTo({
+          url: '../classifydetail/classifydetail?id='+ e.target.id,
         })
-      }
-    })
-  },
-  getIconsList: function (e) {
-    var that = this;
-    Classify.getList().then(function (data) {
-      if (data.status == 1) {
-        app.globalData.classifyList = data.data
-        that.setData({
-          classifyList: data.data,
-          classify: data.data[0].name
-        })
-      }
-    })
-  },
-  getList: function () {
-    var that = this;
-    console.log(that.data.search)
-    Showcase.getList(that.data.search).then(function (data) {
-      console.log(data.status)
-      if (data.status == 1) {
-        if (data.data.length > 0) {
-          that.processProdcutData(data.data)
-        } else {
-          that.setData({
-            goodList: []
-          })
-        }
-
-      }
-    })
-  },
-  processProdcutData: function (data) {
-    console.log(data)
-    const that = this
-    var productList = []
-    var temp = {
-      classify: '',
-      goods: []
+    }else if(e.target.id == 1){
+      wx.navigateTo({
+        url: '../vanlist/vanlist'
+      })
+    }else{
+      // e.target.id == 5
+      // wx.navigateTo({
+      //   url: '../secclassifydetail/secclassifydetail?twoClassificationId=19',
+      // })
+      wx.showToast({
+        title: '敬请期待',
+      })
     }
-    var h_goodList = []
-    var s_goodList = []
-    var flag = false
-    for (var ii in data) {
-      for (var i in data[ii].products) {
-        data[ii].products[i].product.price = data[ii].products[i].product.price / 100
-        console.log(app)
-        data[ii].products[i].product.createdAt = app.util.formatTime(new Date(data[ii].products[i].product.createdAt), true);
-      }
-      if (data[ii].showType == 2) {
-        h_goodList.push(data[ii])
-      } else {
-        s_goodList.push(data[ii])
-      }
-      productList.push(data[ii])
-    }
-    this.setData({
-      goodList: productList,
-      h_goodList: h_goodList,
-      s_goodList: s_goodList
-    })
-  },
-  onGoodTap: function (e) {
-    console.log('onGoodTap')
-    console.log(e)
-    wx.navigateTo({
-      url: '../detail/detail?productId=' + e.detail.data.product.id,
-    })
-  },
-  onTeaTap: function (e) {
-    console.log('onTeaTap')
-    console.log(e.detail.data)
-    var obj = e.detail.data
-    wx.navigateTo({
-      url: '../detail/detail?productId=' + obj.product.id + '&teaId=' + obj.product.teaId,
-    })
-  },
-  onIconTap: function (e) {
-    var icon = e.detail.data
-    console.log(icon)
-    app.globalData.classifyId = icon.id
-    wx.switchTab({
-      url: '../list/list',
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -170,7 +104,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (options) {
+   
   }
 })

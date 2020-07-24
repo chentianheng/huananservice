@@ -1,0 +1,17 @@
+<!--pages/servicedetail/servicedetail.wxml-->
+<!--pages/secclassifydetail/secclassifydetail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="base-container" style="justify-content: flex-start;">
+  <view class="base-container" style="margin-bottom:160rpx">
+      <!-- 换了官方富文本组件 -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <!--  -->
+  <!--  -->
+  <view class="base-container bottomContainer">
+  <!-- open-type="getUserInfo" bindgetuserinfo="getUserInfo" -->
+    <button class="common-btn base-container" bindtap="onSubmitTap">马上报名</button>
+  </view>
+
+  <contact></contact>
+</view>

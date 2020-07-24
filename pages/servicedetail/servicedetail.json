@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "contact": "/components/contact/contact"
+  },
+  "navigationBarTitleText": "车辆维护与保养详情"
+}

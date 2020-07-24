@@ -4,5 +4,7 @@ const dhyurl = server.dhData;
 module.exports = {
   wxlogin: url + '/api/wx/user/login',
   postUserInfo: '/api/wx/user/userInfo',
-  userInfo:'/api/wx/user/userInfo'
+  // userInfo:'/api/wx/user/userInfo'
+  userInfo:'/api/login/authLogin.json',
+
 };

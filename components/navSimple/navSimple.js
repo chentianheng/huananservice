@@ -13,6 +13,10 @@ Component({
     hidden:{
       type: Boolean,
       value: 0,
+    },
+    whiteBg: {
+      type: Boolean,
+      value: 0,
     }
   },
 
@@ -30,7 +34,11 @@ Component({
   methods: {
     onbackTap(){
       wx.navigateBack({
-     
+        fail: function () {
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
       })
     },
     onbackHomeTap(){

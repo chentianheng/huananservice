@@ -1,0 +1,29 @@
+/* pages/vandetail/vandetail.wxss */
+
+.banner{
+  width:100%;
+  margin: auto;
+}
+
+.swiper_show60 {
+  height: 40vw;
+  width: 100%;
+  background-position: 50% 50%;
+}
+
+.indexClassifty{
+  margin-top: 20rpx;
+  width: 732rpx;
+  height: 260rpx;
+  border-radius: 5px;
+}
+
+.bottomContainer{
+  position: fixed;
+  bottom: 0;
+  left: 2.5%;
+  width: 95%;
+  height: 156rpx;
+  border-top: 1px solid #70707015;
+  
+}

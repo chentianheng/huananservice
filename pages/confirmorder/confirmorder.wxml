@@ -62,18 +62,19 @@
         <view class='product-body'>
           <view class='product-name'>{{item.name}}</view>
           <!-- <view class='name02'>规格: {{item.specification}}年</view> -->
-          <view class='name02'>年份: {{item.year}}年</view>
+          <view wx:if="{{item.year}}" class='name02'>年份: {{item.year}}年</view>
           <view class='name02'>工艺: {{item.productionTechnology}}</view>
         </view>
         <view class='price-count'>
           <view class='product-price'>¥ {{item.price/100}}</view>
           <view class="stepper">
             <!-- 减号 -->
-            <text class="{{count>1?'normal':'disabled'}}" bindtap="onMinus" data-index="{{index}}">-</text>
+            <text class="{{item.count>1?'normal':'disabled'}}" bindtap="onMinus" data-index="{{index}}">-</text>
             <!-- 数值 -->
-            <input type="number" bindchange="bindManual" value="{{item.count}}" />
+            <!-- <input type="number" bindinput="bindManual" value="{{item.count}}" data-index="{{index}}"/> -->
+            <text style="fontsize:14px; border-left: 1px solid #ccc;border-right: 1px solid #ccc;">{{item.count}}</text>
             <!-- 加号 -->
-            <text class="{{count<retail.stock?'normal':'disabled'}}" bindtap="onPlus" data-index="{{index}}">+</text>
+            <text class="{{item.count<item.stock?'normal':'disabled'}}" bindtap="onPlus" data-index="{{index}}">+</text>
           </view>
         </view>
       </view>

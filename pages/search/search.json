@@ -1,6 +1,0 @@
-{
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "goods": "/components/goodList/goodList"
-  }
-}

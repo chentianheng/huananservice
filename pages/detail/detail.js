@@ -5,6 +5,9 @@ const Product = require('../../module/product.js');
 const Postage = require('../../module/postage.js');
 const Cart = require('../../module/cart.js');
 const Qrcode = require('../../module/qrcode.js');
+const Customer = require('../../module/customer.js');
+const Comment = require('../../module/comment.js');
+const Address = require('../../module/address.js');
 var WxParse = require('../../wxParse/wxParse.js');
 Page({
   /**
@@ -37,27 +40,156 @@ Page({
     customer: '',
     chooseProduct:{
     },
-    actValue: '加入购物车'
+    actValue: '加入购物车',
+    superiorId:'',
+    imgUrl: '/images/icons/acvartar.png',
+    comment:{
+      hasComment:false,
+      msgs:[]
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     const that = this
     var productId = options.productId || 19
-
-
+    let superiorId = that.data.superiorId
+    if (options.superiorId){
+      console.log("检测到的id", options.superiorId)
+      superiorId = options.superiorId
+      
+    }
     if (productId) {
       this.getOne(productId)
     }
-    // this.getPostage()
+    this.getDefaultAddress()
+    
     // this.getDistributor()
     that.setData({
       productId: productId,
+      superiorId
     })
-   this.getWxQrCode()
+    that.getWxQrCode()
+    that.getCustomer()
+    that.getComment()
+  },
+  onShow:function(){
+    this.getComment()
+  },
+  getDefaultAddress() {
+    let that = this;
+    Address.getDefaultAddress().then(function (data) {
+      console.log('getDefaultAddress')
+      console.log(data)
+      that.setData({
+        address: data,
+      })
+      /*  that.listPostage(); */
+      that.getPostage()
+    })
+  },
+  getComment(){
+    let that = this
+    let productId = that.data.productId
+    let comment = that.data.comment
+    let data = {
+      productId:productId,
+      page:1,
+      pageSize:6
+    }
+    Comment.getComment(data).then(function(res){
+      if(res.data.length){
+        comment.msgs = res.data
+        comment.hasComment = true
+      }else{
+        comment.hasComment = false
+      }
+      that.setData({
+        comment
+      })
+      // console.log("评论数据是：",comment)
+    })
+  },
+  toComment(){
+    let productId = this.data.productId
+    let productName = this.data.productInfo.name
+    wx.navigateTo({
+      url: '/pages/newcomment/newcomment?productId='+productId+'&productName='+productName,
+    })
+  },
+  toCommentlist() {
+    let productId = this.data.productId
+    let productName = this.data.productInfo.name
+    wx.navigateTo({
+      url: '/pages/commentlist/commentlist?productId=' + productId + '&productName=' + productName,
+    })
+  },
+  getUserInfo: function (e) {
+    console.log("查看按钮详情",e)
+    let that = this
+    Customer.getCustomer().then(function (res) {
+      let data = res
+      if (data.wxUser.nickName) {
+        // console.log(data.wxUser.nickName)
+        that.onChangeCartShowState(e)
+      } else {
+        wx.navigateTo({
+          url: '/pages/login/login',
+        })
+      }
+    })
+    
+  },
+  postUserInfo: function (data) {
+    var url = `${app.api.userInfo}`;
+    var that = this;
+    var data = {
+      "nickName": data.nickName,
+      "gender": data.gender,
+      "country": data.country,
+      "province": data.province,
+      "city": data.city,
+      "avatarUrl": data.avatarUrl
+    }
+    app.apiFunctions.requestUrl(
+      url,
+      'POST',
+      true,
+      false,
+      data,
+      function (data) {
+        if (data.status == 1) {
+          console.log(data);
+          wx.navigateBack({
+
+          })
+        }
+      }
+    );
+  },
+  getCustomer(){
+    let that = this
+    // console.log("superiorId是", that.data.superiorId)
+    let superiorId = that.data.superiorId
+    let data = {
+      superiorId: that.data.superiorId
+    }
+    Distributor.bindCustomer(data).then(function(res){
+      // console.log("id是", res.data.id)
+      if (res.data.id){
+        // console.log("执行")
+        superiorId = res.data.id
+      }
+      that.setData({
+        superiorId
+      })
+    })
+  },
+  getCustomerLogin(){
+   
   },
   setRelate: function (distributorId) {
     var data = {
@@ -101,8 +233,12 @@ Page({
   },
   getPostage: function (productId) {
     var that = this;
-    console.log(that.data.search)
-    Postage.listPostage().then(function (data) {
+    let address = that.data.address
+    console.log("查看地址",address)
+    var data = {
+      addressId: address.id
+    }
+    Postage.listPostage(data).then(function (data) {
       console.log(data.status)
       if (data.status == 1) {
         let postage = 0.0
@@ -165,9 +301,10 @@ Page({
     // })
   },
   onChangeCartShowState: function (e) {
-    console.log('onChangeCartShowState')
-    console.log(e.currentTarget.dataset.status)
+    // console.log('onChangeCartShowState')
+    // console.log(e.currentTarget.dataset.status)
     var that = this;
+    // that.getCustomerLogin();
     if(e.currentTarget.dataset.status ==  1){
       that.data.actValue =  '加入购物车'
     }
@@ -359,6 +496,7 @@ Page({
     that.setData({
       showCanvas: true
     });
+    let fakeImg = 'https://gdj.yf-gz.cn/file/1589197405428_34a0e6d73446dd1637be1274dea7d258.png';
     let canvasColor = '#f7f7f7';
     let goods = that.data.productInfo;
     let windowWidth = that.data.windowWidth;
@@ -392,7 +530,7 @@ Page({
     let priceFontSize = 25;
     let priceColor = 'rgb(236, 54, 66)';
     let qrCodeWidth = 100;
-    let qrCodeHeight = 100;
+    let qrCodeHeight = 120;
 
     // url = `${settings.domain}/oss/${url}`;
     // url = `${settings.domain}/oss/${url}`;
@@ -425,7 +563,7 @@ Page({
 
         cardWidth = canvasWidth - margin * 2;
         cardHeight = canvasHeight - 2 * (margin / 3 * 2);
-       let x = margin;
+        let x = margin;
         let y = margin / 3 * 2;
       /*   cardWidth = canvasWidth;
         cardHeight = canvasHeight; */
@@ -473,7 +611,7 @@ Page({
 
           //第三种方案
           imageHeight = sh / sw * imageWidth;
-          ctx.drawImage(goodsImg.url, x, y, imageWidth, imageHeight);
+          ctx.drawImage(goodsImg.url, x, y, 300, 300);
 
           //如果高度比宽度低，上移
           // if (srh > sh) {
@@ -487,14 +625,15 @@ Page({
 
         //头像
         y = y + imageHeight + 2 * padding;
-        ctx.drawImage(urlList[1].url, x, y, avatarWidth, avatarHeight);
+        // ctx.drawImage(urlList[1].url, x, y, avatarWidth, avatarHeight);
+        ctx.drawImage(fakeImg, x, y, avatarWidth, avatarHeight);
 
         //昵称标题
-        x = x + padding + avatarWidth;
-        y = y + avatarHeight;
-        ctx.setFontSize(nickFontSize);
-        ctx.setFillStyle(nickColor);
-        ctx.fillText(`${that.data.userInfo.nickName || '你的好友'}  推荐你看`, x, y);
+        // x = x + padding + avatarWidth;
+        // y = y + avatarHeight;
+        // ctx.setFontSize(nickFontSize);
+        // ctx.setFillStyle(nickColor);
+        // ctx.fillText(`${that.data.userInfo.nickName || '你的好友'}  推荐你看`, x, y);
 
         // //二维码
         x = canvasWidth - margin - padding - qrCodeWidth;
@@ -878,7 +1017,12 @@ Page({
   },
   onBackTap:function(e){
     wx.navigateBack({
-
+      delta:1,
+      fail:function(){
+        wx.switchTab({
+          url: '../index/index',
+        })
+      }
     })
   },
   onbackHomeTap:function(e){
@@ -934,6 +1078,7 @@ Page({
   onShareAppMessage: function (options) {
     console.log(options);
     const that = this
+    console.log("that.data.superiorId",that.data.superiorId);
     let product = this.data.productInfo;
     /* let showPrice = product.minPrice/100;
     if (product.minPrice < product.maxPrice) {
@@ -942,16 +1087,25 @@ Page({
     // let title = `${product.name}`;
     let title = `[ ￥${product.price} ] ${product.name}`;
     let path = `pages/detail/detail?productId=${product.id}&classifyId=${product.classify.id}`;
-    // if (that.data.distributor.id) {
-    //   path = path + '&distributorId=' + that.data.distributor.id;
-    // }
-    console.log(path);
+    if (that.data.superiorId) {
+      path = path + '&superiorId=' + that.data.superiorId;
+    }
+    console.log("分享链接是：",path);
     let imageUrl = product.images[0].url;
+    
+    let shareObj = {
+      title: that.data.productInfo.name,
+      path:path,
+      imageUrl: that.data.productInfo.images,
+      success: function (res) {
+        if (res.errMsg == 'shareAppMessage:ok') { }
+      },
+      fail: function (res) {
+        if (res.errMsg == 'shareAppMessage:fail cancel') { } else if (res.errMsg == 'shareAppMessage:fail') { }
+      }
+      
+    }
 
-    return app.tools.onShare(options, {
-      title,
-      path,
-      imageUrl
-    });
+    return shareObj;
   }
 })

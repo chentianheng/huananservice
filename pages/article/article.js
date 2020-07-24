@@ -9,7 +9,18 @@ Page({
     windowHeight:app.globalData.windowHeight,
     articleId: null,
     article: {},
-    title: '详情'
+    title: '详情',
+    classifyList:[
+      {
+        type:1,
+        name:"平台加盟"
+      },{
+        type:2,
+        name:"新能源汽车"
+      },{
+        type:3,
+        name:"行业资讯"
+      }],
   },
 
   onLoad: function(options) {
@@ -35,11 +46,17 @@ Page({
       });
     }); */
 
-    Article.getOne(articleId).then(function (data) {
+    Article.getOne(articleId).then(function (res) {
       console.log('getArticle')
-      console.log(data)
-      let article = data.data;
-      article.formatUpdated = app.util.getDateDiff(article.updatedAt);
+      console.log(res)
+      let article = res.data.articleDTO;
+      let classifyList = that.data.classifyList
+      article.formatUpdated = app.util.getDateDiff(article.updateTime);
+      for(let ii in classifyList){
+        if(article.type == classifyList[ii].type){
+          article.classifyName = classifyList[ii].name
+        }
+      }
       that.parseHtml(article);
       that.setData({
         article,
@@ -52,7 +69,7 @@ Page({
 
   parseHtml(article) {
     let that = this;
-    let detail = article.content.content;
+    let detail = article.content;
     WxParse.wxParse('detail', 'html', detail, that, 5);
   },
 });

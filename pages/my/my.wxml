@@ -1,67 +1,88 @@
 <view class="pure_top">
-	<view style="z-index:2;height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;text-align:center;color: white;display: flex;align-items: center;justify-content: center;">我的</view>
-
 	<view style='display:flex;margin-left: 30rpx;'>
 		<view class='listimg'>
-			<open-data type="userAvatarUrl" class='Avatar'></open-data>
-			<!-- <image class='Avatar' src="{{customer.wxUser.avatarUrl?customer.wxUser.avatarUrl:imgUrl}}"></image> -->
+			<!-- <open-data type="userAvatarUrl" class='Avatar'></open-data> -->
+			<image class='Avatar' src="{{avatar?avatar:imgUrl}}"></image>
 		</view>
 
 		<view class="cusName">
 			<view class='vipname'>
 				<!-- 	<view>{{customer.name}}</view> -->
-				<open-data type="userNickName" class='userNickName'></open-data>
+				<!-- <open-data type="userNickName" class='userNickName'></open-data> -->
 				<text class='userNickName'></text>
-				<!-- <button style="{{customer.wxUser.nickName == null?'width: 100px;font-size: 13px;background-color: #850005;color: white;':'display:none'}}"  open-type="getUserInfo" bindgetuserinfo="getUserInfo">
-					{{customer.wxUser.nickName?customer.wxUser.nickName:'请先登陆'}}
+				<button style="{{userName == null?'width: 100px;font-size: 13px;padding:0 7px;margin-left:14px;color:white;background-color:rgb(184,211,254)':''}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+					{{userName?userName:'请先登陆'}}
 				</button>
-        <text class='userNickName' style="{{customer.wxUser.nickName == null?'display:none':''}}"  open-type='getUserInfo'>	{{customer.wxUser.nickName}}</text> -->
+        <!-- <text class='userNickName' style="{{customer.wxUser.nickName == null?'display:none':''}}"  open-type='getUserInfo'>	{{customer.wxUser.nickName}}</text> -->
 			</view>
-			<view class="vipCus">{{customer.distributorId?'VIP客户':'成为VIP'}}</view>
+      <!-- todo：成为分销商 -->
+			<!-- <view class="vipCus">{{customer.distributorId?'VIP客户':'成为VIP'}}</view> -->
 		</view>
 	</view>
 </view>
 
-<view class='white-pannel'>
-	<navigator url="../order/order" class="weui-cell b-line">
-		<view class="fl-hd">
-			<image class="icon-img" mode="widthFix" src="/images/icons/list_icons_0.png" />
-		</view>
+
+<view class="card-container">
+  <view class='white-pannel'>
+	
+	<view class="weui-cell b-line">
 		<view class="fl-bd">我的订单</view>
-		<view class="fl-ft t-grey">
+		<view class="fl-ft t-grey" bindtap="jumpOther">
 			查看全部
 			<view class="arrow"></view>
 		</view>
-	</navigator>
+	</view>
 </view>
 
-<view class="icons-panel">
-	<navigator url="../order/order?status=0" class="col-4 icons  pb12">
-		<image class="icon-img" mode="aspectFit" src="/images/icons/credit.png" />
+<view class="icons-panel" bindtap="jumpOther">
+	<view class="col-4 icons  pb12">
+		<image class="icon-img" mode="aspectFit" src="/images/icons/all.png" />
 		<text class="c-block h7 text-center">全部</text>
-	</navigator>
-	<navigator url="../order/order?status=1" class="col-4 icons  pb12">
-		<image class="icon-img" mode="aspectFit" src="/images/icons/upload.png" />
+	</view>
+	<view class="col-4 icons  pb12">
+		<image class="icon-img" mode="aspectFit" src="/images/icons/pay.png" />
 		<text class="c-block h7 text-center">待支付</text>
-	</navigator>
-	<navigator url="../order/order?status=2" class="col-4 icons  pb12">
-		<image class="icon-img" mode="aspectFit" src="/images/icons/clock.png" />
+	</view>
+	<view class="col-4 icons  pb12">
+		<image class="icon-img" mode="aspectFit" src="/images/icons/send.png" />
 		<text class="c-block h7 text-center">待发货</text>
-	</navigator>
-	<navigator url="../order/order?status=3" class="col-4 icons  pb12">
-		<image class="icon-img" mode="aspectFit" src="/images/icons/cash.png" />
+	</view>
+	<view class="col-4 icons  pb12">
+		<image class="icon-img" mode="aspectFit" src="/images/icons/complete.png" />
 		<text class="c-block h7 text-center">已完成</text>
-	</navigator>
+	</view>
+</view>
 </view>
 
 
-<view class="serviceCon">
-	<view class="servicetitle">巅味号服务</view>
+<view class="card-container">
+	<view class="servicetitle">
+  <text style="margin-left:1rem">我的服务</text>
+  </view>
 	<view class="serviceFor">
-		<navigator url="{{item.path}}" wx:for="{{serviceList}}" class="serviceItem" wx:if="{{item.show}}">
+
+    <view class="serviceItem">
+    <button class="btn-contact" open-type="contact" bindcontact="handleContact"></button>
+    <image src="/images/icons/service.png"></image>
+			<text>客服</text>
+    </view>
+
+    <view class="serviceItem">
+    <button class="btn-contact"  bindtap="callCusPhone"></button>
+    <image src="/images/icons/call.png"></image>
+			<text>电话</text>
+    </view>
+
+		<view class="serviceItem">
+    <button class="btn-contact"  bindtap="openLocation"></button>
+    <image src="/images/icons/location.png"></image>
+			<text>服务地址</text>
+    </view>
+
+		<view wx:for="{{serviceList}}" class="serviceItem" wx:if="{{item.show}}">
 			<image src="{{item.url}}"></image>
 			<text>{{item.name}}</text>
-		</navigator>
+		</view>
 	</view>
 
 

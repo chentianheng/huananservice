@@ -73,6 +73,12 @@ Page({
     }
     
   },
+  setNaviBar() {
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#000000'
+    })
+  },
   listOrder(status) {
     let that = this;
     Order.listOrder(status).then(function (data) {
@@ -202,13 +208,14 @@ Page({
    */
   onReady: function () {
     this.getBarheight()
+    this.setNaviBar()
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -239,12 +246,6 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   phoneCall: function () {
     let that = this;
     wx.makePhoneCall({

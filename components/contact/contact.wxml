@@ -1,0 +1,10 @@
+<!--components/contact/contact.wxml-->
+  <!-- 固定button -->
+  <view style="position: fixed;right: 0;bottom: 30%;">
+    <button class="contactBtn base-container" catchtap="callByTap">
+        <image style="width:44rpx;height:76rpx;margin-top:3px;" src="/images/icons/contact_phone.png"></image>
+    </button>
+    <button class="contactBtn base-container"  open-type="contact" catchtap="serviceByTap">
+        <image style="width:44rpx;height:76rpx;margin-top:3px;" src="/images/icons/contact_service.png"></image>
+    </button>
+  </view>

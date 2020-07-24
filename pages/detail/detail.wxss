@@ -1,14 +1,36 @@
 /* pages/product/product.wxss */
 
+.fixed-btn-1{
+  width: 80rpx;
+  height: 60rpx;
+  background-color: #000000b2;
+  border-radius: 40rpx 0 0 40rpx;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 100;
+}
+
+.fixed-btn-2{
+  width: 80rpx;
+  height: 60rpx;
+  background-color: #000000b2;
+  border-radius: 40rpx 0 0 40rpx;
+  position: fixed;
+  top: 55%;
+  right: 0;
+  z-index: 100;
+}
+
 .navBack {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  border: 1rpx solid rgba(0, 0, 0, 0.1);
-  background: #f9f9f9;
-  border-radius: 29rpx;
-  height: 59rpx;
-  width: 166rpx;
+  border: 1rpx solid rgba(255,255, 255, 0.1);
+  background: #00000041;
+  border-radius: 40rpx;
+  height: 70rpx;
+  width: 70rpx;
 }
 
 .navHome {
@@ -30,7 +52,6 @@
   width: 50%;
   height: 63%;
   justify-content: center;
-  border-right: 1rpx solid rgba(0, 0, 0, 0.2);
 }
 
 .tabbar2 {
@@ -71,8 +92,9 @@
 
 .tabbar-w30 {
   height: 45px;
-  display: inline-block;
+  display: inline-flex;
   width: 30%;
+  border-radius: 0;
 }
 
 .bg-orange {
@@ -125,7 +147,7 @@
 }
 
 .white-panel {
-  padding: 0 15px;
+  padding: 10px 15px;
   background-color: white;
 }
 
@@ -158,7 +180,7 @@ font-weight: bold;
 }
 
 .wx-view_6H4Car {
-  border-top: 1rpx solid rgba(0,0,0,0.1);
+  /* border-top: 1rpx solid rgba(0,0,0,0.1); */
   font-weight: 300;
 }
 
@@ -243,30 +265,6 @@ font-weight: bold;
   display: none;
 }
 
-.popup-wrapper {
-  background: rgba(0, 0, 0, 0.4);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  overflow: auto;
-  margin: 0;
-  z-index: 3;
-  animation: fadein 0.5s;
-}
-
-.popup-bottom {
-  background-color: rgb(255, 255, 255);
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  box-shadow: rgba(0, 0, 0, 0.270588) 0px -2px 20px 0px;
-  flex-direction: column;
-  z-index: 200;
-  animation: moveup 0.4s ease;
-}
 
 .img-pl {
   position: absolute;
@@ -482,6 +480,7 @@ font-weight: bold;
   margin: 0;
   z-index: 3;
   animation: fadein 0.5s;
+  -webkit-overflow-scrolling: touch;
 }
 
 .popup-bottom {
@@ -605,8 +604,109 @@ font-weight: bold;
 
 .sharetof{
   display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-width: 10%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
 }
+
+.detail-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.goods-bg{
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  /* background-image: linear-gradient(180deg, #272727 10%, #000000 100%); */
+  background-color: white;
+}
+
+.title-container{
+  padding-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-icon{
+  width: 15px;
+  height: 15px;
+}
+
+.comment-container{
+  display: inline-flex;
+  background-color: #f9f9f9;
+  width: 600rpx;
+  height: 260rpx;
+  border-radius: 10rpx;
+  padding: 30rpx 20rpx 0 20rpx;
+  flex-direction: column;
+}
+
+.comment-container + .comment-container{
+  margin-left: 30rpx;
+}
+
+.empty-container{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  width: 100%;
+  height: 80rpx;
+  /* border-radius: 10rpx; */
+}
+
+.Avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  display: block;
+  overflow: hidden;
+}
+
+.Avatar-name{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-left: 10rpx;
+}
+
+.comment-tags{
+  padding: 12rpx 20rpx;
+  /* color: white; */
+  background-color: #F5E7CD;
+  font-size: 11px;
+  margin: 15rpx 5rpx;
+  border-radius: 30rpx;
+}
+
+.comment-msg{
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:2;  /*行数*/
+}
+
+.more-container{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+  width: 100rpx;
+  height: 290rpx;
+  margin-left: 30rpx;
+  /* border-radius: 10rpx; */
+}
+

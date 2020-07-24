@@ -62,24 +62,29 @@ let tools = {
     let that = this;
     requestTimes = requestTimes || 1;
     let token = wx.getStorageSync('token') || '';
-    if (!request.url.includes('sid')) {
-      let flag = request.url.includes('?') ? '&' : '?';
-      request.url = request.url + `${flag}sid=` + token;
-    } else {
-      var lac = request.url.indexOf("sid");
-      request.url = request.url.substr(0, lac + 4);
-      request.url = request.url + token;
-    }
+
+    // if (!request.url.includes('code')) {
+    //   let flag = request.url.includes('?') ? '&' : '?';
+    //   request.url = request.url + `${flag}code=` + token;
+    // } else {
+    //   var lac = request.url.indexOf("code");
+    //   request.url = request.url.substr(0, lac + 4);
+    //   request.url = request.url + token;
+    // }
     if (!request.url.includes('http')) {
       request.url = `${settings.domain}${request.url}`;
     }
-
+    if (token) {
+      request.header = request.header || {};
+      request.header['sessionId'] = token 
+    }
 
     request.method = (request.method || 'get').toUpperCase();
 
     if (request.isFormData) {
       request.header = request.header || {};
       request.header['content-type'] = 'application/x-www-form-urlencoded';
+
     }
 
     wx.request({

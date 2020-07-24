@@ -1,0 +1,22 @@
+<!--pages/vandetail/vandetail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+ <!-- banner -->
+  <view class="banner" id="bannerHeight">
+    <swiper autoplay="True" class="swiper_show60" indicator-dots="True" lower-threshold="10" indicator-color="rgba(255,255,255,0.3)" indicator-active-color="rgba(255,255,255,0.6)" interval="4000">
+      <swiper-item wx:for="{{bannerList}}" wx:for-item="isBanner" wx:key="{{index}}" id="{{index}}" data-index="{{index}}">
+        <image mode="aspectFill" style="width:100%; height:100%;display:block;" src="{{isBanner.image}}" />
+      </swiper-item>
+    </swiper>
+  </view>
+
+<view class="base-container" style="justify-content: flex-start;">
+  <view class="base-container" style="padding:20px 10px 70px 10px">
+      <!-- 换了官方富文本组件 -->
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+
+  <view class="base-container bottomContainer">
+  <!-- open-type="getUserInfo" bindgetuserinfo="getUserInfo" bindtap="onSubmitTap"-->
+    <button class="common-btn base-container" open-type="getUserInfo" bindgetuserinfo="getUserInfo" >马上询问底价</button>
+  </view>
+</view>

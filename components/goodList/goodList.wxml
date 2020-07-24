@@ -5,26 +5,30 @@
     </view> -->
 	<view class='good'>
 		<view class='good-detail' wx:for="{{goodList}}" wx:for-item="good" catchtap='onGoodTap' data-index="{{index}}">
-			<view style='text-align:center;'>
-				<image src="{{good.images[0].url?good.images[0].url:url}}" mode="aspectFit" style='width: 350rpx;height: 350rpx;border-top-left-radius: 10px;border-top-right-radius: 10px;'></image>
+			<view style='text-align:center;position:relative;'>
+				<image src="{{good.images[0].url?good.images[0].url:url}}" mode="aspectFit" style='width: 350rpx;height: 350rpx;'></image>
+        <view class="goods-bg"></view>
 			</view>
 			<view class='good-name'>
 				<text>{{good.name}}</text>
 			</view>
 			<view class='format-name'>
-				<text wx-if="{{good.year}}">{{good.year}}年</text>
+      <view style="width:90%;height:2rpx;border-bottom:1px dashed;border-color:#E0AC66;"></view>
+				<view class='format-detail'>
+        <text wx-if="{{good.year}}">{{good.year}}年</text>
 		<!-- 		<text wx-if="{{good.brand}}">{{good.brand}}</text> -->
 				<text wx-if="{{good.productionTechnology}}">{{good.productionTechnology}}</text>
-	<!-- 			<text wx-if="{{good.product.specification}}">{{good.product.specification}}</text> -->
+	<!-- 			<text wx-if="{{good.product.specification}}">{{good.product.specification}}</text> -->    </view>
 			</view>
 			<view class='pricecart'>
+       <image src="/images/others/btn.png" style="width:300rpx;height:42rpx"></image>
 				<view class='price'>
 					<text style='font-size:27rpx;'>￥</text>
 					<text>{{good.price}}</text>
 				</view>
 				<view style="display: flex;">
-						<text style='font-size:12px;color:#999'>销量:{{good.sellCount?good.sellCount:0}}
-            </text>
+						<!-- <text style='font-size:12px;color:#999'>销量:{{good.sellCount?good.sellCount:0}}
+            </text> -->
 				<!-- 	<image style="height:38rpx;width:38rpx;" catchtap="onCartTap" data-index="{{index}}" src="/images/icons/r-cart.png"></image> -->
 
 				</view>

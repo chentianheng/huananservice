@@ -1,0 +1,110 @@
+/* pages/vanlist/vanlist.wxss */
+/**index.wxss**/
+/* page{
+  background-color: #000000;
+} */
+
+.banner{
+  width:100%;
+  margin: auto;
+}
+
+.swiper_show60 {
+  height: 40vw;
+  width: 100%;
+  background-position: 50% 50%;
+}
+
+.indexClassifty{
+  margin-top: 20rpx;
+  width: 732rpx;
+  height: 260rpx;
+  border-radius: 5px;
+}
+
+/* tab */
+/* pages/info/info.wxss */
+.navigationTitle {
+  width: 100%;
+  /* height: 62px; */
+/*   background-color: #f9f9f9; */
+  font-size: 35rpx;
+  font-family: "SourceHanSansCN";
+  color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  /* padding-top:20rpx; */
+  /*  justify-content: center; */
+  position: relative;
+}
+
+.backImg {
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  /*  position: absolute;
+  left: 20rpx;
+  bottom: 0rpx; */
+}
+
+.yearColumn {
+  display: flex;
+  white-space: nowrap;
+  margin-left: 10rpx;
+  /* justify-content: center;
+  align-items: center; */
+  width: 100%;
+  font-size: 15px;
+}
+.forYear {
+  display: inline-block;
+  padding: 0 10px;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  text-align: center;
+  position: relative;
+  width: 25%;
+}
+
+.bottom-line {
+  background-color: var(--theme-color);
+  height: 5rpx;
+  width: 20rpx;
+  margin: 0 auto;
+  
+}
+
+.vanContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  
+}
+
+.vanTitle{
+  font-size: 18px;
+  max-width: 440rpx;
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:1;  /*行数*/
+}
+
+.vanDesc{
+  font-size: 14px;
+  color: #999999;
+  max-width: 440rpx;
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:2;  /*行数*/
+}

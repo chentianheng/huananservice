@@ -1,33 +1,33 @@
 <view style='background-color:white;'>
-	<view class="article__wrapper">
-		<view wx:for-index="index" wx:for="{{articleList}}" data-index="{{index}}" class="article__item">
+	<view class="article__wrapper" >
+		<view wx:for-index="index" wx:for="{{articleList}}" data-index="{{index}}" class="article__item" bindtap="onArticleTap">
 
 			<view class="articleImg">
-				<image bindtap="onArticleTap" data-index="{{index}}" mode="aspectFill" class='articleImage' src="{{item.imgUrl ? item.imgUrl : item.loadingUrl}}"></image>
+				<image bindtap="onArticleTap" data-index="{{index}}" mode="aspectFill" class='articleImage' src="{{item.image}}"></image>
 			</view>
 
 
 			<view class="article__text">
 				<view class='article__name'>
 					<view class="article__title omit">
-						<view bindtap="onArticleTap" data-index="{{index}}">
+						<view  data-index="{{index}}">
 							<text>{{item.title}}</text>
 						</view>
-						<view bindtap="onPhoneTap" data-index="{{index}}" wx:if="{{item.showPhone}}" style="display:flex;">
+						<!-- <view bindtap="onPhoneTap" data-index="{{index}}" wx:if="{{item.showPhone}}" style="display:flex;">
 							<image style="height:30rpx;width:30rpx;" src='/images/icons/phone3.png'></image>
 							<text style="margin-left:8rpx;color:#878787;font-size:14px;">{{item.phone}}</text>
-						</view>
+						</view> -->
 					</view>
 					<!-- <view class='article__type'>{{item.typeValue}}</view> -->
 				</view>
-				<view bindtap="onArticleTap" data-index="{{index}}" class="article__content">
+				<view  data-index="{{index}}" class="article__content">
 					<text>{{item.introduction}}</text>
 				</view>
 
-				<view bindtap="onArticleTap" data-index="{{index}}" class="article__time">
+				<view  data-index="{{index}}" class="article__time">
 					<view style="display:flex;">
 						<image src='/images/icons/classify.png'></image>
-						<text style='margin-left:2px'>{{item.classify.name}}</text>
+						<text style='margin-left:2px'>{{item.classifyName}}</text>
 					</view>
 					<view>
 						<text style='margin-left:2px'>{{item.formatUpdated}}</text>

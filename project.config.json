@@ -17,16 +17,20 @@
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
-	"appid": "wx18acc51fdf07c250",
-	"projectname": "dwh",
+	"appid": "wx61a4d46dd2185870",
+	"projectname": "huananservice",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -82,6 +86,48 @@
 					"id": -1,
 					"name": "info",
 					"pathName": "pages/info/info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/protocol/protocol",
+					"pathName": "pages/protocol/protocol",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/advertising/advertising",
+					"pathName": "pages/advertising/advertising",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/newcomment/newcomment",
+					"pathName": "pages/newcomment/newcomment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/cart/cart",
+					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/submitpage/submitpage",
+					"pathName": "pages/submitpage/submitpage",
 					"scene": null
 				}
 			]

@@ -21,8 +21,7 @@ Page({
       'cartProductId': ''
     },
     productIds:[],
-    cartList:[
-    ],
+    cartList:[],
     shop: [
       { name: '易杨堂茶叶', value: '0'}
     ],
@@ -37,8 +36,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setNaviBar()
   },
+  setNaviBar() {
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#000000'
+    })
+    },
   getList: function (e) {
     var that = this;
     Cart.getList().then(function (data) {
@@ -48,6 +53,7 @@ Page({
           carts: data.data
         })
       }
+      console.log('cartList', that.data.cartList)
     })
   },
   add: function (e) {
@@ -70,6 +76,54 @@ Page({
         that.getList()
       }
     })
+  },
+  onMinus(e) {
+    const that = this
+    let index = e.currentTarget.dataset.index
+    let count = this.data.cartList[index].count
+    if (count > 1) {
+      count--;
+      --this.data.cartList[index].count
+      --this.data.num
+      this.data.totalPrice = this.data.totalPrice - this.data.cartList[index].price
+    }
+    this.setData({
+      num: that.data.num,
+      count: count,
+      totalPrice: that.data.totalPrice,
+      cartList: that.data.cartList
+    })
+  },
+  onPlus(e) {
+    let that = this
+    let index = e.currentTarget.dataset.index
+    let count = this.data.cartList[index].count
+    count++;
+    // TODO 正确的商品库存数量
+    if (count <= 99) {
+      ++this.data.num
+      ++this.data.cartList[index].count
+      this.data.totalPrice = this.data.totalPrice + this.data.cartList[index].price
+      this.setData({
+        num: that.data.num,
+        count: count,
+        cartList: that.data.cartList
+      })
+    } else {
+      wx.showToast({
+        title: '库存不足,库存只剩' + this.data.cartList[index].stock + '片',
+        icon: 'none',
+      })
+    }
+  },
+  /* 输入框事件 */
+  bindManual: function (e) {
+    var count = e;
+    console.log('count',count)
+    // 将数值与状态写回  
+    this.setData({
+      count
+    });
   },
   onCartTap(e){
     console.log('onCartTap')
@@ -205,25 +259,6 @@ Page({
     })
 
   },
-  getCardList:function(){
-     var cardList = []
-     var temp = {
-       'productId':'',
-       'count':''
-     }
-    for (var idx in this.data.productIds){
-      for (var i in this.data.cartList) {
-        if (this.data.productIds[idx] == this.data.cartList[i].productId){
-          temp.productId = this.data.cartList[idx].productId
-          temp.count = this.data.cartList[idx].count
-          cardList.push(temp)
-        }
-
-      }
-    }
-    console.log(cardList)
-    app.globalData.cartList = cardList
-  },
   setCardListToGrobalData:function(){
     const that = this
     var temp = {}
@@ -243,17 +278,27 @@ Page({
   },
   comfirmOrder: function () {
     const that = this
-    if (!that.data.editflag){
-      this.setCardListToGrobalData()
-      wx.navigateTo({
-        url: '../confirmorder/confirmorder?fromCart=' + true
-      })
-    }else{
+    let productIds = that.data.productIds
+    if (!that.data.editflag ){
+      if (productIds.length != 0){
+        this.setCardListToGrobalData()
+        wx.navigateTo({
+          url: '../confirmorder/confirmorder?fromCart=' + true
+        })
+      } else if (productIds.length == 0) {
+        wx.showToast({
+          title: '请选择商品',
+          image:'/images/icons/error.png'
+        })
+      }
+      
+    } 
+    else{
       wx.showModal({
         title: '提示',
         content: '是否执行此操作',
         showCancel: true,
-        cancelText: "确定",
+        cancelText: "取消",
         confirmText: "确定",
         success: function (res) {
           if (res.cancel) {
@@ -328,10 +373,5 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
-  }
 })

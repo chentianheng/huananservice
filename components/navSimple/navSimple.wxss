@@ -14,8 +14,14 @@
   z-index: 2;
 }
 
+.white-bg{
+  background: white;
+  color: black;
+}
+
 .backImg {
   display:flex;
+  position: relative;
 align-items:center;
 /* position:absolute;
 left:20rpx;
@@ -24,19 +30,35 @@ padding-right:5px; */
 width:50%;
 height:100%;
 justify-content:center;
-border-right:1rpx solid #be6262;
 }
+
+.backImg::after {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 60%;
+  right: 0;
+  top: 20%;
+  background: #ffffff3f;
+}
+
 .navBack{
 display:flex;
 justify-content:space-between;
 align-items:center;
-border:1rpx solid #be6262;
-background:rgba(168, 40, 50, 0.5);
+border:1rpx solid #ffffff3f;
+background:#0000003f;
 border-radius:29rpx;
 height:59rpx;
 width:166rpx;
 margin-left: 20rpx;
 }
+
+.white-nav{
+border:1rpx solid #00000013;
+background:white;
+}
+
 .navHome{
 display:flex;
 align-items:center;

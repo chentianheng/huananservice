@@ -1,0 +1,14 @@
+<!--pages/classifydetail/classifydetail.wxml-->
+
+<view class=" base-container" style="justify-content: flex-start;">
+  <!-- <text class="h18">请选择需要报名的平台:</text> -->
+  <view class="indexClassifty"  wx:for="{{list}}" wx:key="{{item.id}}" >
+  <button id="{{item.id}}"  open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="width:100%; height:100%;display:block;padding:0">
+    <image  mode="aspectFill" style="width:100%; height:100%;display:block;" src="{{item.image}}"></image>
+  </button>
+      
+  </view>
+
+  <contact></contact>
+  
+</view>

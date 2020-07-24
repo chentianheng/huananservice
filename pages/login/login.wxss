@@ -1,0 +1,40 @@
+/* pages/login/login.wxss */
+.base-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.blank20{
+  height: 320rpx;
+  width: 100%;
+}
+
+.login-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 268rpx;
+  height: 86rpx;
+  background-color: var(--theme-color);
+  color: white;
+  font-size: 24rpx;
+  border-radius: 60rpx;
+  margin: 10rpx;
+}
+
+.cancle-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 268rpx;
+  height: 86rpx;
+  border: 2rpx solid var(--theme-color);
+  color: var(--theme-color);
+  font-size: 24rpx;
+  border-radius: 60rpx;
+  margin: 10rpx;
+}

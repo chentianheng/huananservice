@@ -1,9 +1,10 @@
- <view class='navigationTitle' >
-  <view class='backImg' bindtap='onBackTap'>
+ <view>
+  <!-- <view style="z-index:2;height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;text-align:center;display: flex;align-items: center;justify-content: center;color:white;background-color: var(--theme-color);position:fixed;width:100%">云风科技</view>
+  <view style="position:sticky;bottom:0px;z-index:2;position:-webkit-sticky;height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px;" class='backImg' bindtap='onBackTap'>
     <image src='/images/icons/back.png' style='height:20px;width:20px;  margin-left:10px;'></image>
-  </view>
-  <text style='margin-top:25rpx;'>云风科技</text>
-</view> 
+  </view> -->
+
+
 <image class="block-img" bindtap="callmeTap" mode="widthFix" src="../../images/aboutyf/index_02.jpg" />
 <view class="h5" style="margin-bottom:20px;">小程序的流量，先下手为强</view>
 <view class="panel panel1 text-center">
@@ -79,9 +80,10 @@
 </view>
 
 <view class="panel contact text-center">
-  <a bindtap="callmeTap">电话咨询:132-4232-9988</a>
+  <a bindtap="callmeTap">电话咨询:155-2102-6970</a>
 </view>
 
 <view class="footer text-center" style="padding-top:14px;">
   <view class="t-grey" style="font-size:13px;">广州云风科技有限公司</view>
 </view>
+</view> 

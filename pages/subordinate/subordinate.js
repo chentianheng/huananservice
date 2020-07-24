@@ -53,7 +53,7 @@ Page({
     var data = {
       customerId:customerId
     }
-    Distributor.bindCustomer(data).then(function (data) {
+    Distributor.bindStaff(data).then(function (data) {
       console.log(data)
       if(data.status  == 1){
         wx.showToast({
@@ -112,10 +112,5 @@ Page({
     that.getSubordinate()
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
-  }
 })

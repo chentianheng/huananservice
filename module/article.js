@@ -4,23 +4,17 @@ const Api = require('../api.js');
 let Article = {
   getList(data) {
     return Request.request({
-      url: '/api/wx/article',
-      method: 'get',
+      url: '/api/article/getArticleList.json',
+      method: 'post',
       isRes: true,
+      isFormData: true,
       data: data
     })
   },
   getOne(id) {
     return Request.request({
-      url: '/api/wx/article'+ '/' + id,
-      method: 'get',
-      isRes: true
-    })
-  },
-  getClassify(data) {
-    return Request.request({
-      url: '/api/wx/article/classify',
-      method: 'get',
+      url: '/api/article/getArticle.json?articleId='+ id,
+      method: 'post',
       isRes: true
     })
   },

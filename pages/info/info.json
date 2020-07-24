@@ -1,5 +1,6 @@
 {
-  "navigationBarTextStyle": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "行业资讯",
   "usingComponents": {
     "nav": "/components/navSimple/navSimple",
     "article":"/components/articlelist/articlelist"

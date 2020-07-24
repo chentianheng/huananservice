@@ -1,5 +1,7 @@
 {
-  "navigationBarTextStyle": "white",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "个人中心",
+  "navigationBarBackgroundColor": "#f9f9f9",
   "usingComponents": {
     "footer": "/components/footer/footer"
   }

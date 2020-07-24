@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "contact": "/components/contact/contact"
+  },
+  "navigationBarBackgroundColor": "#3CA139",
+  "navigationBarTextStyle": "white"
+}

@@ -113,10 +113,10 @@ function wxAutoImageCal(originalWidth, originalHeight,that,bindName) {
     autoWidth = windowWidth;
     autoHeight = (autoWidth * originalHeight) / originalWidth;
     results.imageWidth = autoWidth;
-    results.imageheight = autoHeight;
+    results.imageheight = Math.round(autoHeight);
   } else {//否则展示原来的数据
     results.imageWidth = originalWidth;
-    results.imageheight = originalHeight;
+    results.imageheight = Math.round(originalHeight);
   }
   return results;
 }

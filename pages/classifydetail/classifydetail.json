@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "contact": "/components/contact/contact"
+  },
+  "navigationBarTitleText": "网约车平台"
+}

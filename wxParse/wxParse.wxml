@@ -25,8 +25,9 @@
   src="{{item.attr.src}}" 
   bindload="wxParseImgLoad" 
   bindtap="wxParseImgTap" 
-  style="width:100%;display:block;" 
-  mode="widthFix"
+  style="width:{{item.width}}px;height:{{item.height}}px;display:flex;margin-top: -1px;" 
+  mode="{{item.height ? 'scaleToFill' : 'widthFix'}}"
+  lazy-load="true"
   />
 </template>
 

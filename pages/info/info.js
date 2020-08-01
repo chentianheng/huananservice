@@ -1,6 +1,7 @@
 // pages/info/info.js
 const app = getApp()
 const Article = require('../../module/article.js');
+const User = require('../../module/user.js');
 const Distributor = require('../../module/distributor.js');
 Page({
 
@@ -20,15 +21,16 @@ Page({
       },{
         type:2,
         name:"新能源汽车",
-        choosed:true
+        
       },{
         type:3,
-        name:"行业资讯"
+        name:"行业资讯",
+        choosed: true
       }],
     articleList:[],
     superiorId: '',
     search:{
-      type: 2,
+      type: 3,
       pageSize:10,
       pageNumber:1,
     }
@@ -39,6 +41,17 @@ Page({
   onLoad: function (options) {
     const that = this
     that.getList()
+  },
+  onShow() {
+    this.recordPath()
+  },
+  recordPath() {
+    let data = {
+      pagePath: '资讯页'
+    }
+    User.recordingPath(data).then(res => {
+
+    })
   },
   getList:function(e){
     var that = this;

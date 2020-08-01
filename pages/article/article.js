@@ -70,6 +70,6 @@ Page({
   parseHtml(article) {
     let that = this;
     let detail = article.content;
-    WxParse.wxParse('detail', 'html', detail, that, 5);
+    WxParse.wxParse('detail', 'html', detail, that, 10);
   },
 });

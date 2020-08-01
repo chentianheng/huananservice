@@ -17,7 +17,7 @@
 }
 
 .swiper_show60 {
-  height: 50vw;
+  height: 37vh;
   width: 100%;
   background-position: 50% 50%;
 }

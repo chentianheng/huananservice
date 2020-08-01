@@ -43,6 +43,17 @@ Page({
   onLoad: function (options) {
     this.getUser()
   },
+  onShow() {
+    this.recordPath()
+  },
+  recordPath() {
+    let data = {
+      pagePath: '个人中心'
+    }
+    User.recordingPath(data).then(res => {
+
+    })
+  },
   jumpOther(){
     wx.navigateToMiniProgram({
       appId: 'wxc2088bd709a0f698',

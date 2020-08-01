@@ -1,4 +1,5 @@
 // pages/list/list.js
+const User = require('../../module/user.js');
 Page({
   /**
    * 页面的初始数据
@@ -7,9 +8,18 @@ Page({
   onShow:function(){
     console.log('show')
     let that = this
+    that.recordPath()
     setTimeout(function() {
       that.jumpOther()
    }, 500);
+  },
+  recordPath() {
+    let data = {
+      pagePath: '商城'
+    }
+    User.recordingPath(data).then(res => {
+
+    })
   },
   onLoad(){
   //   console.log('load')

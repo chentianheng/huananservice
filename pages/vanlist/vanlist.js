@@ -9,13 +9,15 @@ Page({
   data: {
     search:{
       pageSize:10,
-      pageNumber:1
+      pageNumber:1,
     },
-    list:[]
+    list:[],
+    bList:[]
   },
   onLoad: function (options) {
     this.getAdvertising()
     this.getVanList()
+    this.getBVanList()
   },
   getAdvertising: function (e) {
     var that = this;
@@ -34,11 +36,24 @@ Page({
   getVanList(){
     let that = this
     let search = that.data.search
+    search.twoClassificationId = 16
     let list = that.data.list
     Van.getTruckList(search).then(function(res){
       console.log('res.data',res.data.truckDTOList)
       that.setData({
         list:res.data.truckDTOList
+      })
+    })
+  },
+  getBVanList() {
+    let that = this
+    let search = that.data.search
+    search.twoClassificationId = 17
+    let bList = that.data.bList
+    Van.getTruckList(search).then(function (res) {
+      console.log('res.data', res.data.truckDTOList)
+      that.setData({
+        bList: res.data.truckDTOList
       })
     })
   },

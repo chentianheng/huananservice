@@ -6,6 +6,11 @@
       <swiper-item wx:for="{{bannerList}}" wx:for-item="isBanner" wx:key="id" id="{{index}}" bindtap="bannerJump" data-index="{{index}}" data-id="{{isBanner.id}}">
         <image mode="aspectFill" style="width:100%; height:100%;display:block;" src="{{isBanner.image}}" />
       </swiper-item>
+      <swiper-item wx:for="{{fixedBanner}}">
+         <button id="{{item.id}}"  open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="width:100%; height:100%;display:block;padding:0;border-radius:0">
+    <image  mode="aspectFill" style="width:100%; height:100%;display:block;" src="{{item.image}}"></image>
+  </button>
+      </swiper-item>
     </swiper>
   </view>
 

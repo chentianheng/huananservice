@@ -35,6 +35,17 @@ Page({
     this.processName()
     this.getTruckDetail(carId)
   },
+  onShow() {
+    this.recordPath()
+  },
+  recordPath() {
+    let data = {
+      pagePath: this.data.classifyName + '留资页'
+    }
+    User.recordingPath(data).then(res => {
+
+    })
+  },
   getTruckDetail(id){
     if(id){
       let data = {
@@ -165,6 +176,7 @@ Page({
         mask: true,
       })
     }else{
+      let newData = {}
       let data = {
         // appUserId : this.data.appUserId,
         name : e.detail.value.name,
@@ -179,9 +191,16 @@ Page({
         model : e.detail.value.model || '',
         inviteCode : e.detail.value.inviteCode || ''
       }
-      // console.log('data:',data)
+      for(let k in data){
+        if (data[k]){
+          console.log('key', k)
+          console.log('value', data[k])
+          newData[k] = data[k]
+        }
+      }
+      console.log('newData:', newData)
       
-      User.information(data).then(function(res){
+      User.information(newData).then(function(res){
         // console.log('res.result',res.status)
         if(res.status == 2000000){
           wx.showToast({

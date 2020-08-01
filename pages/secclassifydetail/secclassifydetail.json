@@ -2,5 +2,5 @@
   "usingComponents": {
     "contact": "/components/contact/contact"
   },
-  "navigationBarTitleText": "车辆维护与保养详情"
+  "navigationBarTitleText": "网约车资料提交"
 }

@@ -10,27 +10,28 @@
     </swiper>
   </view>
 
-  <!-- todo:js内容尚未填写 -->
-  	<!-- <view>
-		<view class='navigationTitle' style='height:{{titleBarHeight+10}}px;'>
-			<scroll-view scroll-x="true" class='yearColumn'>
-				<view wx:for="{{classifyList}}" wx:for-index="index" class='forYear' style="{{item.choosed?'color:var(--theme-color);text-align: center;font-weight:bold;':''}}" catchtap='onColumnChoose' data-id="{{item.type}}">
-					<text>{{item.name}}</text>
-					<view style="height:8rpx;width:1rpx;"></view>
-					<view class="{{item.choosed?'bottom-line':''}}"></view>
-				</view>
-			</scroll-view>
-		</view>
-	</view> -->
-
-  <view class="base-container" style="justify-content: flex-start;width:100%">
-    <view style="padding:10px;display:flex;width:90%;border-bottom: 1px solid #E1E1E1;" wx:for="{{list}}" wx:key="id" id="{{item.id}}" bindtap="onDetailTap">
-        <image mode="aspectFill" style="width:160rpx; height:160rpx;display:block;" src="{{item.image}}"></image>
-        <view class="vanContainer">
+  <view class="base-container aClassContainer" style="justify-content: flex-start;">
+    <view class="aClass" style="" wx:for="{{list}}" wx:key="id" id="{{item.id}}" bindtap="onDetailTap">
+        <image mode="aspectFill" style="width:360rpx; height:360rpx;display:block;" src="{{item.image}}"></image>
+        <view class="vanContainer base-container">
             <text class="vanTitle">{{item.name}}</text>
             <text class="vanDesc">{{item.introduction}}</text>
         </view>
+        <view class="greenBtn base-container">立即预订</view>
     </view>
+
+    <!-- Bcalss begin -->
+    <view class="bClass">
+  <view class="bvan base-container" style="" wx:for="{{bList}}" wx:key="id" id="{{item.id}}" bindtap="onDetailTap">
+          <image mode="aspectFill" style="width:260rpx; height:260rpx;display:block;" src="{{item.image}}"></image>
+          <view class="bvanContainer">
+              <text class="vanTitle">{{item.name}}</text>
+              <text class="vanDesc">{{item.introduction}}</text>
+          </view>
+          <view class="greenBtn base-container">立即预订</view>
+    </view>
+
+  </view>
   </view>
 
 <!-- 底部 -->

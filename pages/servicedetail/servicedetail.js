@@ -1,6 +1,7 @@
 // pages/secclassifydetail/secclassifydetail.js
 const Index = require('../../module/index.js');
 var WxParse = require('../../wxParse/wxParse.js');
+const User = require('../../module/user.js')
 const app = getApp();
 Page({
 
@@ -8,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    otherServiceDTO:{}
+    otherServiceDTO:{},
+    title:''
   },
 
   /**
@@ -28,6 +30,30 @@ Page({
         twoClassificationId :res.data.otherServiceDTO.twoClassificationId
       })
       that.parseHtml()
+    })
+    if (that.data.oneClassificationId == 2) {
+      that.setData({
+        title: '网约车平台'
+      })
+    } else if (that.data.oneClassificationId == 3) {
+      that.setData({
+        title: '维修保养'
+      })
+    } else {
+      that.setData({
+        title: '综合服务'
+      })
+    }
+  },
+  onShow() {
+    this.recordPath()
+  },
+  recordPath() {
+    let data = {
+      pagePath: '/'+ this.data.title +'/详情页'
+    }
+    User.recordingPath(data).then(res => {
+
     })
   },
   parseHtml(){

@@ -1,6 +1,7 @@
 // pages/classifydetail/classifydetail.js
 const Index = require('../../module/index.js');
 const app = getApp();
+const User = require('../../module/user.js');
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
    */
   data: {
     list:[],
+    title:''
   },
 
   /**
@@ -20,6 +22,22 @@ Page({
       classificationId :options.id
     }
     let list = that.data.list
+    if (data.classificationId == 2){
+      that.setData({
+        title:'网约车司机加盟'
+      })
+    } else if (data.classificationId == 3){
+      that.setData({
+        title: '维修保养'
+      })
+    }else{
+      that.setData({
+        title: '综合服务'
+      })
+    }
+    wx.setNavigationBarTitle({
+      title: that.data.title
+    })
     Index.getSecondClassify(data).then(function(res){
         // console.log(res.data.tow_classificationDTOList)
         list = res.data.tow_classificationDTOList
@@ -30,6 +48,18 @@ Page({
 
     })
    
+  },
+  onShow() {
+    this.recordPath()
+  },
+  recordPath() {
+    let that = this
+    let data = {
+      pagePath: that.data.title
+    }
+    User.recordingPath(data).then(res => {
+
+    })
   },
   onDetailTap(e){
       let classificationId = this.data.classificationId

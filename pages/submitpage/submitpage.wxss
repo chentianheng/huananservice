@@ -15,6 +15,13 @@ page{
   flex-direction: column;
 }
 
+.line{
+  width: 100%;
+  /* padding: 20rpx; */
+  background-color: #E1E1E1;
+  height: 2rpx;
+}
+
 .inputContainer{
   width: 80%;
   display: flex;
@@ -24,7 +31,7 @@ page{
 }
 
 .inputContainer input {
-  border-bottom: 1px solid #E1E1E1;
+  /* border-bottom: 1px solid #E1E1E1; */
   padding: 0.5em;
 }
 

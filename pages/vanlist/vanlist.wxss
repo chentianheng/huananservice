@@ -23,6 +23,56 @@ page{
   border-radius: 5px;
 }
 
+.hotTittle{
+  position: relative;
+  width:80%;
+  height:80rpx;
+  border:8px solid rgba(124,245,253,1);
+  background:linear-gradient(180deg,rgba(0,222,255,1) 0%,rgba(0,135,216,1) 100%);
+  opacity:1;
+  border-radius:30px;
+  color: white;
+  margin-top: 20rpx;
+}
+
+
+
+.hotTittle::after{
+  content: "";
+  width: 70%;
+  height: 20rpx;
+  position: absolute;
+  left: calc(12% );
+  top: calc(100% + 16rpx);
+  border-left: 8px solid rgba(124,245,253,1);
+  border-right: 8px solid rgba(124,245,253,1);
+  
+}
+
+.specTitle{
+  background:linear-gradient(90deg,#EA7A2E 0%,#EC9A45 100%);
+  padding: 10rpx 20rpx;
+  border-radius: 10rpx;
+  margin: 30rpx 0 20rpx 0 ;
+  color: white;
+  
+}
+
+.leftTitleImg{
+  width:120rpx;
+  height:120rpx;
+  position: absolute;
+  left: -60rpx;
+  top: -20rpx;
+}
+
+.rightTitleImg{
+  width: 90rpx;
+  height: 90rpx;
+  position: absolute;
+  top:-30rpx;
+  right: -30rpx;
+}
 /* tab */
 /* pages/info/info.wxss */
 .navigationTitle {
@@ -97,7 +147,7 @@ page{
 }
 
 .vanDesc{
-  
+  display: block;
   font-size: 14px;
   color: #999999;
   max-width: 600rpx;
@@ -149,10 +199,47 @@ page{
 .bvan{
   width: 40%;
   margin: 0 calc(20%/4);
+  /* height: 600rpx; */
 }
 
 .bvan + .bvan{
   /* margin-left: 0; */
+}
+
+.bvanContainer{
+  /* height: 170rpx; */
+  width: 260rpx;
+  text-align: center;
+  margin-top: 10rpx;
+}
+
+.bvanTitle{
+  font-size: 14px;
+  max-width: 640rpx;
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:1;  /*行数*/
+}
+
+.bvanDesc{
+  display: block;
+  font-size: 12px;
+  color: #999999;
+  max-width: 640rpx;
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:2;  /*行数*/
+  padding-right: 5px;
 }
 
 .greenBtn{
@@ -164,5 +251,5 @@ page{
   border-radius:30px;
   margin: 20rpx 0;
   color: white;
-
+  /* position: absolute; */
 }

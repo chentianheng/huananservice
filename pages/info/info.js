@@ -17,20 +17,20 @@ Page({
     classifyList:[
       {
         type:1,
-        name:"平台加盟"
+        name: "平台加盟",
+        choosed: true
       },{
         type:2,
         name:"新能源汽车",
         
       },{
         type:3,
-        name:"行业资讯",
-        choosed: true
+        name:"行业资讯"
       }],
     articleList:[],
     superiorId: '',
     search:{
-      type: 3,
+      type: 1,
       pageSize:10,
       pageNumber:1,
     }

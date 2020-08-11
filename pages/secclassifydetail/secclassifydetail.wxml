@@ -47,7 +47,7 @@
       <radio value="2">否</radio>
      </radio-group>
      <!--  -->
-     <label>是否有广州市网约车证（人证）？</label>
+     <label>是否有广州市{{twoClassificationId == 24?'从业资格证':'网约车证（人证）'}}?</label>
      <radio-group name="rideCertificate" class="inputContainer" style="width:288rpx;margin:5px;margin-bottom: 20px">
       <radio value="1" checked>是</radio>
       <radio value="2">否</radio>
@@ -60,11 +60,12 @@
       <label for="brand">品牌</label>
       <input name="brand" id="brand" placeholder="请输入车辆品牌" placeholder-style="color:#E1E1E1"></input>
      </view>
+      <view class="line"></view>
      <view class="inputContainer">
       <label for="model">型号</label>
       <input name="model" id="model" placeholder="请输入车辆型号" placeholder-style="color:#E1E1E1"></input>
      </view>
-  
+   <view class="line"></view>
     </view>
     <!-- 邀请码 -->
     <view class="subimtBase">

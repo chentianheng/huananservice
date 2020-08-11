@@ -1,0 +1,103 @@
+/* pages/charging/charging.wxss */
+.banner{
+  width:100%;
+  margin: auto;
+}
+
+.swiper_show60 {
+  height: 280rpx;
+  width: 660rpx;
+  background-position: 50% 50%;
+  border-radius: 10px;
+  
+}
+
+.line{
+  width: 100%;
+  /* padding: 20rpx; */
+  background-color: #E1E1E1;
+  height: 2rpx;
+  margin-top: 20rpx;
+}
+
+.locatedIcon{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.bvanContainer{
+  width: 600rpx;
+}
+
+.vanTitle{
+  font-size: 15px;
+  max-width: 500rpx;
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:1;  /*行数*/
+}
+
+.vanDesc{
+  display: block;
+  font-size: 13px;
+  color: #999999;
+  max-width: 520rpx;
+  display:-webkit-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;  
+  -webkit-line-clamp:2;  /*行数*/
+  padding-right: 5px;
+}
+
+.tagsContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 10rpx;
+}
+
+.tags{
+  border-radius: 5px;
+  border: 1px solid #fed32d;
+  padding: 5rpx 10rpx;
+  font-size: 14px;
+  margin: 10rpx;
+  background: #fed42d57;
+}
+
+.yearColumn {
+  display: flex;
+  white-space: nowrap;
+  margin-top: 20rpx;
+  /* justify-content: center;
+  align-items: center; */
+  width: 100%;
+  font-size: 15px;
+
+}
+
+.forYear {
+  display: inline-block;
+  padding: 0 10px;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  text-align: center;
+  position: relative;
+  width: 25%;
+}
+
+.bottom-line {
+  background-color: #fed32d;
+  height: 5rpx;
+  width: 20rpx;
+  margin: 0 auto;
+}

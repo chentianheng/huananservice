@@ -64,7 +64,7 @@ Page({
   onDetailTap(e){
       let classificationId = this.data.classificationId
       console.log(e)
-      if(classificationId == 2 ){
+    if (classificationId == 2 || classificationId == 3){
         //携带ID跳转到info页面
         wx.navigateTo({
           url:'../secclassifydetail/secclassifydetail?twoClassificationId='+e.currentTarget.id
@@ -74,7 +74,7 @@ Page({
         wx.navigateTo({
           url: '../submitpage/submitpage?oneClassificationId=' + classificationId + '&twoClassificationId=' + e.currentTarget.id,
         })
-      }else if( classificationId == 3){
+      }else {
         wx.navigateTo({
           url: '../servicedetail/servicedetail?oneClassificationId=' + classificationId + '&twoClassificationId=' + e.currentTarget.id,
         })

@@ -66,12 +66,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    let search = this.data.search
-    let num = search.pageSize
-    search.pageSize = num + 10 
-    this.setData({
-      search
-    })
-    this.getVanList()
+    // let search = this.data.search
+    // let num = search.pageSize
+    // search.pageSize = num + 10 
+    // this.setData({
+    //   search
+    // })
+    // this.getVanList()
   },
 })

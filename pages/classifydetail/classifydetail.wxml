@@ -2,13 +2,18 @@
 
 <view class=" base-container" style="justify-content: flex-start;">
   <!-- <text class="h18">请选择需要报名的平台:</text> -->
-  <view class="indexClassifty"  wx:for="{{list}}" wx:key="{{item.id}}" >
+  <view class="indexClassifty"  wx:for="{{list}}" wx:key="{{item.id}}"  style="{{classificationId == 3?'height:500rpx':''}}">
   <button id="{{item.id}}"  open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="width:100%; height:100%;display:block;padding:0">
     <image  mode="aspectFill" style="width:100%; height:100%;display:block;" src="{{item.image}}"></image>
   </button>
-      
+ 
   </view>
+ <!-- classificationId -->
+ <!-- <view class="indexClassifty">
+  <image wx:if="{{classificationId == 2}}" mode="aspectFill" style="width:100%; height:100%;display:block;border-radius: 5px;" src="https://dwh.yf-gz.cn/file/1596424723946_708926ba3de652f9c35e2bb7e1c68873.jpg"></image>
+ </view> -->
 
+  <view style="width:100%;height:100rpx"></view>
   <contact></contact>
   
 </view>

@@ -9,7 +9,9 @@ Page({
    */
   data: {
     truckDetailDTO:{},
-    bannerList:[]
+    bannerList:[],
+    defaultImg:"https://dwh.yf-gz.cn/file/1596993311999_abff47aaef960e519e99539e5b1bed49.png",
+    defaultBanner:'https://dwh.yf-gz.cn/file/1597053913976_86a05964c6d2394e16b38c41f40e8fbd.png'
   },
 
   /**
@@ -48,6 +50,14 @@ Page({
     var that = this;
     var article = this.data.truckDetailDTO.content;
     WxParse.wxParse('article', 'html', article, that, 5);
+  },
+  imageLoad(){
+    let that = this
+    setTimeout(function(){
+      that.setData({
+        loadComplete: true
+      })
+    },1000)
   },
   onSubmitTap(){
     // if (e.detail.errMsg == 'getUserInfo:ok') {

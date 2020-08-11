@@ -22,11 +22,6 @@ Page({
     })
   },
   onLoad(){
-  //   console.log('load')
-  //   let that = this
-  //   setTimeout(function() {
-  //     that.jumpOther()
-  //  }, 1000);
   },
   jumpOther(){
     wx.navigateToMiniProgram({
@@ -54,3 +49,10 @@ Page({
 
   
 })
+
+// {
+//   "pagePath": "pages/list/list",
+//   "text": "商城",
+//   "iconPath": "images/icons/shop_void.png",
+//   "selectedIconPath": "/images/icons/shop.png"
+// },

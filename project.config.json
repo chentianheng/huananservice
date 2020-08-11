@@ -24,7 +24,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -128,6 +128,13 @@
 					"id": -1,
 					"name": "pages/submitpage/submitpage",
 					"pathName": "pages/submitpage/submitpage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/charging/charging",
+					"pathName": "pages/charging/charging",
 					"scene": null
 				}
 			]

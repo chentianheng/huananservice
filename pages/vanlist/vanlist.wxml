@@ -11,6 +11,11 @@
   </view>
 
   <view class="base-container aClassContainer" style="justify-content: flex-start;">
+    <view class="hotTittle base-container">
+    热销推荐
+    <image class="leftTitleImg" src="/images/icons/coco.png"></image>
+    <image class="rightTitleImg" src="/images/icons/sunshine.png"></image>
+    </view>
     <view class="aClass" style="" wx:for="{{list}}" wx:key="id" id="{{item.id}}" bindtap="onDetailTap">
         <image mode="aspectFill" style="width:360rpx; height:360rpx;display:block;" src="{{item.image}}"></image>
         <view class="vanContainer base-container">
@@ -21,17 +26,86 @@
     </view>
 
     <!-- Bcalss begin -->
+     <view class="hotTittle base-container">
+    更多车型
+    <image class="leftTitleImg" src="/images/icons/coco.png"></image>
+    <image class="rightTitleImg" src="/images/icons/sunshine.png"></image>
+    </view>
     <view class="bClass">
-  <view class="bvan base-container" style="" wx:for="{{bList}}" wx:key="id" id="{{item.id}}" bindtap="onDetailTap">
+    <view class="bvan base-container" style="" wx:for="{{bList}}" wx:key="id" id="{{item.id}}" bindtap="onDetailTap">
           <image mode="aspectFill" style="width:260rpx; height:260rpx;display:block;" src="{{item.image}}"></image>
           <view class="bvanContainer">
-              <text class="vanTitle">{{item.name}}</text>
-              <text class="vanDesc">{{item.introduction}}</text>
+              <text class="bvanTitle">{{item.name}}</text>
+              <text class="bvanDesc">{{item.introduction}}</text>
           </view>
-          <view class="greenBtn base-container">立即预订</view>
+          <view class="greenBtn base-container" style="height:50rpx;font-size:12px">立即预订</view>
+    </view>
     </view>
 
-  </view>
+    <!-- infoA begin -->
+    <!-- <view class="hotTittle base-container">
+    租车买车任你选择
+    <image class="leftTitleImg" src="/images/icons/coco.png"></image>
+    <image class="rightTitleImg" src="/images/icons/sunshine.png"></image>
+    </view> -->
+    <!-- <view class="aClass">
+      <view class="base-container" style="flex-direction: row;margin-top:30rpx">
+      <image src="/images/icons/s1.png" style="width:60rpx;height:60rpx;margin-right:40rpx"></image>
+      <view class="bvanContainer">
+              <text class="vanTitle" style="font-size:18px">租车更灵活</text>
+              <text class="vanDesc" style="font-size:16px">租期可选，成本可控，用车灵活</text>
+          </view>
+      </view>
+     
+      <view class="base-container" style="flex-direction: row;margin-top:30rpx">
+      <image src="/images/icons/s2.png" style="width:60rpx;height:60rpx;margin-right:40rpx"></image>
+      <view class="bvanContainer">
+              <text class="vanTitle" style="font-size:18px">买车更划算</text>
+              <text class="vanDesc" style="font-size:16px">车型更多，月供更低，持续挣钱</text>
+          </view>
+      </view>
+   
+      <view class="base-container" style="flex-direction: row;margin:30rpx 0 60rpx 0;">
+      <image src="/images/icons/s3.png" style="width:60rpx;height:60rpx;margin-right:40rpx;"></image>
+      <view class="bvanContainer">
+              <text class="vanTitle" style="font-size:18px">租买看预算</text>
+              <text class="vanDesc" style="font-size:16px">可租可买，多种方案，到店选择</text>
+          </view>
+      </view>
+    </view> -->
+
+     <!-- infoB begin -->
+    <view class="hotTittle base-container">
+    买货车选我靠谱
+    <image class="leftTitleImg" src="/images/icons/coco.png"></image>
+    <image class="rightTitleImg" src="/images/icons/sunshine.png"></image>
+    </view>
+    <view class="aClass">
+      <!--  -->
+       <view class="base-Container" style="justify-content: flex-start;width:90%;margin:30rpx 0 40rpx 0;">
+              <text class="specTitle" >方案灵活</text>
+              <text class="vanDesc" style="margin-top:30rpx;font-size:16px">可全款可分期，成本可控</text>
+       </view>
+        <!--  -->
+       <view class="base-Container" style="justify-content: flex-start;width:90%;margin:30rpx 0 40rpx 0;">
+              <text class="specTitle" >价格优惠</text>
+              <text class="vanDesc" style="margin-top:30rpx;font-size:16px">低至0首付，月供更低，持续挣钱</text>
+       </view>
+        <!--  -->
+       <view class="base-Container" style="justify-content: flex-start;width:90%;margin:30rpx 0 40rpx 0;">
+              <text class="specTitle" >服务齐全</text>
+              <text class="vanDesc" style="margin-top:30rpx;font-size:16px">包牌包税包保险，车后服务丰富</text>
+       </view>
+        <!--  -->
+       <view class="base-Container" style="justify-content: flex-start;width:90%;margin:30rpx 0 40rpx 0;">
+              <text class="specTitle" >平台优势</text>
+              <text class="vanDesc" style="margin-top:30rpx;font-size:16px">送超级会员，手机接单更轻松</text>
+       </view>
+    </view>
+
+
+
+
   </view>
 
 <!-- 底部 -->

@@ -19,9 +19,9 @@ Page({
         name: 'T3',
         image: 'https://dwh.yf-gz.cn/file/1596264197383_fee1f4242ec3c2d1686ad126a6708ae6.jpg'
       }, {
-        id: 8,
-        name: '曹操',
-        image: 'https://dwh.yf-gz.cn/file/1596264199735_b164c055400d827138504a519638f697.jpg'
+        id: 24,
+        name: '滴滴货运',
+        image: 'https://dwh.yf-gz.cn/file/1597118241195_3fb716735f137d81f0c6cdb5131aac15.jpg'
       }, {
         id: 9,
         name: '携程',
@@ -71,7 +71,7 @@ Page({
   },
   onDetailTap(e){
     // console.log(e)
-    if (e.target.id == 2 || e.target.id == 3 || e.target.id == 5){
+    if (e.target.id == 2 || e.target.id == 3 ){
         wx.navigateTo({
           url: '../classifydetail/classifydetail?id='+ e.target.id,
         })
@@ -79,14 +79,18 @@ Page({
       wx.navigateTo({
         url: '../vanlist/vanlist'
       })
-    }else{
-      // e.target.id == 5
-      // wx.navigateTo({
-      //   url: '../secclassifydetail/secclassifydetail?twoClassificationId=19',
-      // })
-      wx.showToast({
+    }else if(e.target.id == 5){
+       wx.showToast({
         title: '敬请期待',
       })
+    }else{
+      // e.target.id == 5
+      wx.navigateTo({
+        url: '../charging/charging',
+      })
+      // wx.showToast({
+      //   title: '敬请期待',
+      // })
     }
   },
   onBannerTap(e) {

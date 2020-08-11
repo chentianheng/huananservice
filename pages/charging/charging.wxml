@@ -1,0 +1,50 @@
+<!--pages/charging/charging.wxml-->
+<view class="base-container" style="justify-content: flex-start;">
+    <!-- banner -->
+  <view class="banner base-container" id="bannerHeight">
+    <swiper autoplay="True" class="swiper_show60" indicator-dots="True" lower-threshold="10" indicator-color="rgba(255,255,255,0.3)" indicator-active-color="rgba(255,255,255,0.6)" interval="5000">
+      <swiper-item wx:for="{{banner}}"  wx:for-item="isBanner" wx:key="id" >
+        <image mode="aspectFill" style="width:100%; height:100%;display:block;border-radius:10px" src="{{isBanner.image}}" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 排序 -->
+  <scroll-view scroll-x="true" class='yearColumn'>
+    <view wx:for="{{classifyList}}" wx:for-index="index" class='forYear' style="{{item.choosed?'color:#fed32d;text-align: center;font-weight:bold;':''}}" catchtap='onColumnChoose' data-id="{{item.isRecommend}}">
+					<text>{{item.name}}</text>
+          <view style="height:8rpx;width:1rpx;"></view>
+					<view class="{{item.choosed?'bottom-line':''}}"></view>
+    </view>
+  </scroll-view>  
+  <!-- 列表开始 -->
+  <view class="base-container" style="margin:20rpx 0 20rpx 0" wx:for="{{list}}" data-latitude="{{item.latitude}}" data-longitude="{{item.longitude}}" data-address="{{item.address}}" data-name="{{item.name}}"  bindtap="guideTap" id="{{item.id}}"> 
+
+
+  <!-- info -->
+  <view class="base-container" style="flex-direction: row;">
+    <!-- title -->
+    <view class="base-container" style="width:85%">
+     <view class="bvanContainer">
+              <text class="vanTitle" style="font-size:18px">{{item.name}}</text>
+              <text class="vanDesc" style="font-size:16px">{{item.address}}</text>
+              <!-- 暂时隐藏价格 -->
+              <!-- <text><text style="color:red">{{item.price}}</text>元/度</text> -->
+              <view class="tagsContainer">
+                 <view wx:for="{{item.tags}}" class="tags">{{item.tag}}</view>
+              </view>
+          </view>
+    </view>
+    
+    <!-- icon -->
+    <view class="base-container" >
+      <image class="locatedIcon" src="/images/icons/location.png"></image>
+      <text style="color:#c3c3c3;font-size:13px">{{item.dis}}km</text>
+    </view>
+   
+  </view>
+  <view class="line"></view>
+
+<!-- 列表结束 -->
+  </view>
+<!-- 底部 -->
+</view>

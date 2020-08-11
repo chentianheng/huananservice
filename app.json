@@ -21,7 +21,8 @@
     "pages/vanlist/vanlist",
     "pages/vandetail/vandetail",
     "components/contact/contact",
-    "pages/servicedetail/servicedetail"
+    "pages/servicedetail/servicedetail",
+    "pages/charging/charging"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -47,12 +48,7 @@
         "iconPath": "images/icons/home.png",
         "selectedIconPath": "/images/icons/home_black.png"
       },
-      {
-        "pagePath": "pages/list/list",
-        "text": "商城",
-        "iconPath": "images/icons/shop_void.png",
-        "selectedIconPath": "/images/icons/shop.png"
-      },
+      
       {
         "pagePath": "pages/info/info",
         "text": "资讯",
@@ -68,3 +64,4 @@
     ]
   }
 }
+

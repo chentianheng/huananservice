@@ -22,19 +22,19 @@
 </view>
 
 
-<view class="card-container">
-  <view class='white-pannel'>
+<!-- <view class="card-container">
+  <view class='white-pannel'> -->
 	
-	<view class="weui-cell b-line">
+	<!-- <view class="weui-cell b-line">
 		<view class="fl-bd">我的订单</view>
 		<view class="fl-ft t-grey" bindtap="jumpOther">
 			查看全部
 			<view class="arrow"></view>
 		</view>
 	</view>
-</view>
+	</view> -->
 
-<view class="icons-panel" bindtap="jumpOther">
+<!-- <view class="icons-panel" bindtap="jumpOther">
 	<view class="col-4 icons  pb12">
 		<image class="icon-img" mode="aspectFit" src="/images/icons/all.png" />
 		<text class="c-block h7 text-center">全部</text>
@@ -52,7 +52,7 @@
 		<text class="c-block h7 text-center">已完成</text>
 	</view>
 </view>
-</view>
+</view> -->
 
 
 <view class="card-container">
@@ -64,13 +64,13 @@
     <view class="serviceItem">
     <button class="btn-contact" open-type="contact" bindcontact="handleContact"></button>
     <image src="/images/icons/service.png"></image>
-			<text>客服</text>
+			<text>客服咨询</text>
     </view>
 
     <view class="serviceItem">
     <button class="btn-contact"  bindtap="callCusPhone"></button>
     <image src="/images/icons/call.png"></image>
-			<text>电话</text>
+			<text>热线电话</text>
     </view>
 
 		<view class="serviceItem">
@@ -85,6 +85,13 @@
 		</view>
 	</view>
 
+
+</view>
+
+<view class="card-container">
+	<button class="servicetitle base-container" bindtap="callCopPhone" style="background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);border-radius:0">
+  <text style="color:white">商务合作咨询</text>
+  </button>
 
 </view>
 

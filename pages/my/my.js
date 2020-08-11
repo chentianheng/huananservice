@@ -73,6 +73,11 @@ Page({
       phoneNumber: '13711701527',
     })
   },
+  callCopPhone(){
+    wx.makePhoneCall({
+      phoneNumber: '18565561104',
+    })
+  },
   openLocation(){
     wx.openLocation({
       name:'华南新能源汽车服务',

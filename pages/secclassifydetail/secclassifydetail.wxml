@@ -47,7 +47,7 @@
       <radio value="2">否</radio>
      </radio-group>
      <!--  -->
-     <label>是否有广州市{{twoClassificationId == 24?'从业资格证':'网约车证（人证）'}}?</label>
+     <label>是否有{{twoClassificationId == 24?'全国道路运输从业资格证':'广州市网约车证（人证）'}}?</label>
      <radio-group name="rideCertificate" class="inputContainer" style="width:288rpx;margin:5px;margin-bottom: 20px">
       <radio value="1" checked>是</radio>
       <radio value="2">否</radio>

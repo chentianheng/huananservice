@@ -25,8 +25,8 @@
     <!-- title -->
     <view class="base-container" style="width:85%">
      <view class="bvanContainer">
-              <text class="vanTitle" style="font-size:18px">{{item.name}}</text>
-              <text class="vanDesc" style="font-size:16px">{{item.address}}</text>
+              <text class="vanTitle" style="font-size:16px">{{item.name}}</text>
+              <text class="vanDesc" style="font-size:14px">{{item.address}}</text>
               <!-- 暂时隐藏价格 -->
               <!-- <text><text style="color:red">{{item.price}}</text>元/度</text> -->
               <view class="tagsContainer">

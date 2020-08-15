@@ -117,7 +117,9 @@ Page({
       "name": data.nickName,
       "telephone":telephone,
       "avatar":data.avatarUrl,
-      "code":code
+      "code":code,
+      "city": data.city,
+      "country": data.country
     }
     app.apiFunctions.requestUrl(
       url,

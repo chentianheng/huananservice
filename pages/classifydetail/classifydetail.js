@@ -39,11 +39,11 @@ Page({
       title: that.data.title
     })
     Index.getSecondClassify(data).then(function(res){
-        // console.log(res.data.tow_classificationDTOList)
+        console.log(res.data.tow_classificationDTOList)
         list = res.data.tow_classificationDTOList
         that.setData({
           list,
-          classificationId : options.id
+          classificationId : options.id,
         })
 
     })
@@ -103,7 +103,9 @@ Page({
       "name": data.nickName,
       "telephone":telephone,
       "avatar":data.avatarUrl,
-      "code":code
+      "code":code,
+      "city": data.city,
+      "country": data.country
     }
     app.apiFunctions.requestUrl(
       url,

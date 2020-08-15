@@ -10,7 +10,8 @@ Page({
    */
   data: {
     otherServiceDTO:{},
-    title:''
+    title:'',
+    subtitle:''
   },
 
   /**
@@ -31,6 +32,21 @@ Page({
       })
       that.parseHtml()
     })
+    that.initTitle()
+  },
+  onShow() {
+    this.recordPath()
+  },
+  recordPath() {
+    let data = {
+      pagePath: '/'+ this.data.title +'/详情页'
+    }
+    User.recordingPath(data).then(res => {
+
+    })
+  },
+  initTitle(){
+    let that = this 
     if (that.data.oneClassificationId == 2) {
       that.setData({
         title: '网约车平台'
@@ -44,16 +60,8 @@ Page({
         title: '综合服务'
       })
     }
-  },
-  onShow() {
-    this.recordPath()
-  },
-  recordPath() {
-    let data = {
-      pagePath: '/'+ this.data.title +'/详情页'
-    }
-    User.recordingPath(data).then(res => {
-
+    wx.setNavigationBarTitle({
+      title: that.data.title,
     })
   },
   parseHtml(){

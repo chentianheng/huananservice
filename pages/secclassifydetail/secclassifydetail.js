@@ -26,10 +26,41 @@ Page({
       that.setData({
         otherServiceDTO:res.data.otherServiceDTO,
         oneClassificationId :res.data.otherServiceDTO.oneClassificationId,
-        twoClassificationId :res.data.otherServiceDTO.twoClassificationId
+        twoClassificationId :res.data.otherServiceDTO.twoClassificationId,
+        name:res.data.otherServiceDTO.name
       })
       that.parseHtml()
+      that.initTitle()
+      that.recordPath()
     })
+    
+  },
+  onShow(){
+    this.recordPath()
+  },
+  recordPath() {
+    let data = {
+      pagePath: '/'+ this.data.title +'/'+ this.data.name
+    }
+    User.recordingPath(data).then(res => {
+
+    })
+  },
+  initTitle(){
+    let that = this 
+    if (that.data.oneClassificationId == 2) {
+      that.setData({
+        title: '网约车平台'
+      })
+    } else if (that.data.oneClassificationId == 3) {
+      that.setData({
+        title: '维修保养'
+      })
+    } else {
+      that.setData({
+        title: '综合服务'
+      })
+    }
   },
   parseHtml(){
     var that = this;

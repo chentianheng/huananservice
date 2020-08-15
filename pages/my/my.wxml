@@ -10,7 +10,7 @@
 				<!-- 	<view>{{customer.name}}</view> -->
 				<!-- <open-data type="userNickName" class='userNickName'></open-data> -->
 				<text class='userNickName'></text>
-				<button style="{{userName == null?'width: 100px;font-size: 13px;padding:0 7px;margin-left:14px;color:white;background-color:rgb(184,211,254)':''}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+				<button style="{{userName == null?'width: 100px;font-size: 13px;padding:0 7px;margin-left:14px;color:white;background-color:rgb(184,211,254)':''}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" lang="zh_CN">
 					{{userName?userName:'请先登陆'}}
 				</button>
         <!-- <text class='userNickName' style="{{customer.wxUser.nickName == null?'display:none':''}}"  open-type='getUserInfo'>	{{customer.wxUser.nickName}}</text> -->

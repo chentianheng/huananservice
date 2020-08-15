@@ -2,6 +2,7 @@
 const Van = require('../../module/van.js');
 var WxParse = require('../../wxParse/wxParse.js');
 const app = getApp();
+const User = require('../../module/user.js')
 Page({
 
   /**
@@ -11,7 +12,8 @@ Page({
     truckDetailDTO:{},
     bannerList:[],
     defaultImg:"https://dwh.yf-gz.cn/file/1596993311999_abff47aaef960e519e99539e5b1bed49.png",
-    defaultBanner:'https://dwh.yf-gz.cn/file/1597053913976_86a05964c6d2394e16b38c41f40e8fbd.png'
+    defaultBanner:'https://dwh.yf-gz.cn/file/1597053913976_86a05964c6d2394e16b38c41f40e8fbd.png',
+    title:'货车'
   },
 
   /**
@@ -20,6 +22,17 @@ Page({
   onLoad: function (options) {
     // console.log('id',options.id)
     this.getTruckDetail(options.id)
+  },
+  onShow(){
+    this.recordPath()
+  },
+  recordPath() {
+    let data = {
+      pagePath: '/'+ this.data.title + "/" + this.data.name
+    }
+    User.recordingPath(data).then(res => {
+
+    })
   },
   getTruckDetail(id){
     let data = {
@@ -41,9 +54,11 @@ Page({
       // console.log("bannerList",bannerList)
       this.setData({
         bannerList,
-        truckDetailDTO
+        truckDetailDTO,
+        name:res.data.truckDetailDTO.name
       })
       this.parseHtml()
+      this.recordPath()
     })
   },
   parseHtml(){
@@ -91,7 +106,9 @@ Page({
       "name": data.nickName,
       "telephone":telephone,
       "avatar":data.avatarUrl,
-      "code":code
+      "code":code,
+      "city": data.city,
+      "country": data.country
     }
     app.apiFunctions.requestUrl(
       url,

@@ -1,6 +1,7 @@
 // pages/vanlist/vanlist.js
 const Ads = require('../../module/ads.js');
 const Van = require('../../module/van.js');
+const User = require('../../module/user.js')
 Page({
 
   /**
@@ -12,12 +13,24 @@ Page({
       pageNumber:1,
     },
     list:[],
-    bList:[]
+    bList:[],
+    title:'货车'
   },
   onLoad: function (options) {
     this.getAdvertising()
     this.getVanList()
     this.getBVanList()
+  },
+  onShow(){
+    this.recordPath()
+  },
+  recordPath() {
+    let data = {
+      pagePath:  this.data.title 
+    }
+    User.recordingPath(data).then(res => {
+
+    })
   },
   getAdvertising: function (e) {
     var that = this;

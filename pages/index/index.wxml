@@ -7,7 +7,7 @@
         <image mode="aspectFill" style="width:100%; height:100%;display:block;" src="{{isBanner.image}}" />
       </swiper-item>
       <swiper-item wx:for="{{fixedBanner}}">
-         <button id="{{item.id}}"  open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="width:100%; height:100%;display:block;padding:0;border-radius:0">
+         <button id="{{item.id}}" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="width:100%; height:100%;display:block;padding:0;border-radius:0">
     <image  mode="aspectFill" style="width:100%; height:100%;display:block;" src="{{item.image}}"></image>
   </button>
       </swiper-item>
@@ -17,6 +17,6 @@
   <view class="indexClassifty" wx:for="{{classificationDTOList}}" wx:key="id">
     <image id="{{item.id}}" bindtap="onDetailTap" mode="aspectFill" style="width:100%; height:100%;display:block;" src="{{item.image}}"></image>
   </view>
-
+  <contact></contact>
 <!-- 底部 -->
 </view>

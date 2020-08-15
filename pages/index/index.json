@@ -3,6 +3,7 @@
   "navigationBarTitleText": "华南新能源汽车服务",
   "usingComponents": {
     "icons": "/components/icons/icons",
-    "goods": "/components/goods/goods"
+    "goods": "/components/goods/goods",
+    "contact": "/components/contact/contact"
   }
 }
